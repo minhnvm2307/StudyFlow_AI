@@ -1,0 +1,274 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{titlesec}
+
+\setmainfont{Times New Roman}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!50!black,
+    urlcolor=blue!50!black
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Báo cáo Eval Pipeline StudyFlow}
+\fancyhead[R]{\thepage}
+\setlength{\headheight}{15pt}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.22}
+\setlist[itemize]{leftmargin=1.4em,itemsep=0.25em,topsep=0.25em}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+{\LARGE \textbf{BÁO CÁO TỔNG HỢP EVAL PIPELINE}}\\[0.8em]
+{\Large Hệ thống StudyFlow}\\[1.2em]
+{\large Cập nhật ngày 08/07/2026}\\[2em]
+\begin{tabular}{rl}
+\textbf{Repository:} & StudyFlow \\
+\textbf{Phạm vi:} & CI, RAG online, weekly synthetic eval \\
+\textbf{Artifact chính:} & \texttt{docs/eval-evidence/scorecard.json}, \texttt{scorecard.md} \\
+\textbf{Báo cáo PDF:} & \texttt{docs/eval-report.pdf} \\
+\end{tabular}
+\vfill
+{\large Báo cáo tổng hợp kết quả đánh giá thực nghiệm của hệ thống StudyFlow.}
+\end{titlepage}
+
+\section{Tóm tắt điều hành}
+
+Hệ thống đánh giá của StudyFlow được tổ chức thống nhất qua đầu mối \texttt{scripts/run\_eval\_scorecard.py}. Thiết kế này cho phép chuẩn hóa cách thu thập artifact, so sánh ngưỡng và tổng hợp scorecard giữa các chế độ chạy khác nhau. Bốn profile hiện hành gồm:
+\begin{itemize}
+    \item \textbf{ci}: chạy các suite hồi quy xác định, nhanh và ổn định.
+    \item \textbf{online}: chạy đánh giá RAG trên dữ liệu thật, có dùng mô hình và môi trường runtime.
+    \item \textbf{weekly}: chạy synthetic cohort regression cho mastery và scheduler.
+    \item \textbf{all}: tổng hợp toàn bộ các profile phía trên.
+\end{itemize}
+
+Kết quả tổng hợp ở kỳ đánh giá này cho thấy toàn bộ suite đều đạt điều kiện chấp nhận theo scorecard hợp nhất. Đặc biệt, nhánh RAG online đã được chuyển sang đánh giá trên dữ liệu thực của học phần Tư tưởng Hồ Chí Minh và sử dụng tiếng Việt xuyên suốt ở bộ case, artifact và báo cáo. Đối với weekly eval, các chỉ số được sử dụng như một cơ chế regression gate trên cohort synthetic nhằm theo dõi suy giảm tương đối giữa các lần chạy.
+
+\section{Nguồn dữ liệu và minh chứng}
+
+\subsection{Nguồn artifact}
+
+\begin{itemize}
+    \item \texttt{docs/eval-evidence/scorecard.json}: scorecard tổng hợp cuối cùng.
+    \item \texttt{docs/eval-evidence/suites/rag-online-evaluation.json}: kết quả suite RAG online theo case.
+    \item \texttt{docs/eval-evidence/weekly/20260707T205705Z/synthetic\_cohort.json}: kết quả weekly synthetic run được dùng trong báo cáo này.
+    \item \texttt{docs/eval-evidence/online/20260707T205258Z/rag-online-evaluation/}: thư mục minh chứng chi tiết cho lần chạy RAG online được trích dẫn trong báo cáo.
+    \item \texttt{backend/data/init/TTHCM/}: bộ tài liệu gốc để seed và đánh giá RAG.
+\end{itemize}
+
+\subsection{Dữ liệu seed cho RAG}
+
+Suite RAG online được xây dựng trên dữ liệu thực của học phần Tư tưởng Hồ Chí Minh. Nội dung được trích xuất trực tiếp từ tài liệu trong thư mục \texttt{backend/data/init/TTHCM/} và được chia chunk theo cơ chế xác định nhằm bảo đảm khả năng tái lập giữa các lần đánh giá.
+
+\subsection{Quy mô synthetic cohort cho weekly}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Thành phần} & \textbf{Số lượng} \\
+\midrule
+Người dùng synthetic & 6 \\
+Môn học & 12 \\
+Topic & 48 \\
+Nguồn tài liệu & 12 \\
+Chunk tài liệu & 48 \\
+Nhiệm vụ học tập & 123 \\
+Sự kiện mastery & 4380 \\
+Chat thread & 12 \\
+\bottomrule
+\end{tabular}
+\caption{Quy mô dữ liệu synthetic cho weekly regression}
+\end{table}
+
+\section{Trạng thái các suite}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{L{3.4cm} L{2.2cm} L{1.9cm} Y}
+\toprule
+\textbf{Suite} & \textbf{Profile} & \textbf{Trạng thái} & \textbf{Nhận xét} \\
+\midrule
+Course overlap limit & ci & PASS & Kiểm tra giới hạn chồng lấn lịch học, hồi quy xác định. \\
+Mastery evaluation & ci & PASS & Kiểm tra logic đánh giá mastery cốt lõi ở mức deterministic. \\
+Scheduler evaluation & ci & PASS & Kiểm tra hành vi scheduler và cảnh báo nền tảng. \\
+RAG online evaluation & online & PASS & Đánh giá RAG trên tài liệu TTHCM thật, chỉ tiếng Việt. \\
+Mastery weekly & weekly & PASS & Regression gate trên synthetic cohort hiện hành. \\
+Scheduler weekly & weekly & PASS & So sánh chỉ số cảnh báo và hành vi scheduler theo baseline. \\
+\bottomrule
+\end{tabularx}
+\caption{Tổng quan trạng thái toàn bộ các suite eval}
+\end{table}
+
+\section{Metric và ngưỡng đánh giá}
+
+\subsection{RAG online}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{L{3.4cm} L{2.2cm} L{2.1cm} Y}
+\toprule
+\textbf{Metric} & \textbf{Kết quả} & \textbf{Ngưỡng} & \textbf{Ý nghĩa} \\
+\midrule
+Faithfulness & 0.95 & $\geq 0.90$ & Đo mức độ câu trả lời bám sát ngữ cảnh truy hồi được, tránh bịa thêm thông tin. \\
+Answer Relevance & 0.8284 & baseline pass hiện hành & Đo mức độ câu trả lời bám đúng ý hỏi của người dùng trên dữ liệu tiếng Việt. \\
+Retrieval Recall@5 & 0.97 & $\geq 0.85$ & Đo khả năng top-5 chunk truy hồi có chứa đúng bằng chứng cần thiết. \\
+Guardrail refusal accuracy & 1.00 & $= 1.00$ & Đo việc hệ thống có từ chối đúng các truy vấn ngoài phạm vi hoặc prompt injection hay không. \\
+\bottomrule
+\end{tabularx}
+\caption{Các metric chính của suite RAG online}
+\end{table}
+
+\textbf{Diễn giải học thuật:}
+\begin{itemize}
+    \item \textbf{Faithfulness} là chỉ số trọng tâm đối với bài toán grounded question answering. Giá trị thấp thường phản ánh hiện tượng mô hình bổ sung thông tin không được hậu thuẫn bởi ngữ cảnh truy hồi.
+    \item \textbf{Answer Relevance} và \textbf{Faithfulness} đánh giá cùng một đầu ra nhưng từ hai góc nhìn bổ sung: mức độ đáp ứng đúng yêu cầu truy vấn và mức độ bám sát bằng chứng.
+    \item \textbf{Retrieval Recall@5} phản ánh chất lượng của tầng truy hồi. Khi chỉ số này suy giảm, chất lượng câu trả lời thường mất ổn định ngay cả khi mô hình sinh ngôn ngữ hoạt động tốt.
+    \item \textbf{Guardrail refusal accuracy} được đặt ở mức bắt buộc tuyệt đối vì đây là ràng buộc về an toàn và phạm vi chức năng của hệ thống.
+\end{itemize}
+
+\subsection{Mastery weekly}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{L{3.2cm} L{2.0cm} L{2.1cm} Y}
+\toprule
+\textbf{Metric} & \textbf{Kết quả} & \textbf{Baseline gate} & \textbf{Ý nghĩa} \\
+\midrule
+RMSE & 0.4863 & baseline synthetic hiện hành & Sai số dự đoán trung bình theo căn bậc hai, nhạy với lỗi lớn. \\
+Brier score & 0.2365 & baseline synthetic hiện hành & Sai số xác suất bình phương, dùng để đo chất lượng dự báo xác suất mastery. \\
+Calibration gap & 0.1671 & baseline synthetic hiện hành & Độ lệch giữa xác suất dự đoán và tần suất thực tế. \\
+AUC & 0.6922 & baseline synthetic hiện hành & Khả năng xếp hạng đúng giữa người học thành công và không thành công. \\
+\bottomrule
+\end{tabularx}
+\caption{Các metric chính của suite Mastery weekly}
+\end{table}
+
+\textbf{Diễn giải học thuật:}
+\begin{itemize}
+    \item \textbf{RMSE} nhạy với sai số lớn, do đó phù hợp để phát hiện những trường hợp dự báo lệch đáng kể ở một số nhóm người học.
+    \item \textbf{Brier score} đặc biệt phù hợp cho mô hình dự báo xác suất vì đo trực tiếp khoảng cách bình phương giữa xác suất dự báo và kết quả quan sát.
+    \item \textbf{Calibration gap} cho biết xác suất dự báo có phản ánh đúng tần suất xảy ra trong thực tế hay không.
+    \item Các ngưỡng mastery trong pipeline hiện tại nên được hiểu là \textbf{ngưỡng hồi quy trên dữ liệu synthetic của hệ thống}, không phải chuẩn học thuật tuyệt đối cho mọi bối cảnh đánh giá.
+\end{itemize}
+
+\subsection{Scheduler weekly}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{L{3.5cm} L{2.0cm} L{2.1cm} Y}
+\toprule
+\textbf{Metric} & \textbf{Kết quả} & \textbf{Ngưỡng} & \textbf{Ý nghĩa} \\
+\midrule
+Over-budget warning rate & 0.00 & $< 0.10$ & Tỷ lệ cảnh báo vượt ngân sách ngoài mong đợi. \\
+Coverage warning count & 0 & không tăng bất thường & Số cảnh báo thiếu độ phủ kế hoạch học. \\
+Deadline misses & 0 & $= 0$ & Số trường hợp scheduler để trễ deadline trong run synthetic. \\
+\bottomrule
+\end{tabularx}
+\caption{Các metric chính của suite Scheduler weekly}
+\end{table}
+
+\section{Kết quả chi tiết RAG online trên TTHCM}
+
+\subsection{Thiết kế bộ case}
+
+Bộ case RAG online được xây dựng bám sát tài liệu của học phần Tư tưởng Hồ Chí Minh và chỉ sử dụng tiếng Việt. Các nhóm case chính gồm:
+\begin{itemize}
+    \item Câu hỏi kiến thức có đáp án xác định trong tài liệu TTHCM.
+    \item Câu hỏi điều hướng công cụ, chẳng hạn truy vấn lịch học hoặc danh sách chương.
+    \item Trường hợp cần từ chối do truy vấn nằm ngoài phạm vi môn học.
+    \item Trường hợp cần từ chối do prompt injection hoặc hành vi phá vỡ guardrail.
+\end{itemize}
+
+\subsection{Kết quả metric}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrr}
+\toprule
+\textbf{Metric} & \textbf{Kết quả} & \textbf{Đánh giá} \\
+\midrule
+Faithfulness & 0.95 & Đạt \\
+Answer Relevance & 0.8284 & Đạt theo baseline hiện hành \\
+Retrieval Recall@5 & 0.97 & Đạt \\
+Guardrail refusal accuracy & 1.00 & Đạt \\
+\bottomrule
+\end{tabular}
+\caption{Kết quả tổng hợp suite RAG online}
+\end{table}
+
+\subsection{Minh chứng case-level}
+
+\begin{longtable}{L{3.0cm} L{3.4cm} L{3.0cm} L{4.8cm}}
+\toprule
+\textbf{Nhóm case} & \textbf{Câu hỏi} & \textbf{Kết quả} & \textbf{Nhận xét} \\
+\midrule
+\endhead
+RAG answer & Câu hỏi kiến thức bám tài liệu TTHCM & PASS & Câu trả lời được chấm là bám ngữ cảnh, có bằng chứng retrieval và không lẫn môn khác. \\
+Tool route schedule & Hỏi lịch học hôm nay & PASS & Route đúng nhánh công cụ, output ổn định theo tiêu chí case tiếng Việt. \\
+Tool route chapters & Hỏi môn có những chương nào & PASS & Kết quả bám syllabus TTHCM đã seed từ tài liệu thật. \\
+Refusal out-of-scope & Hỏi nội dung ngoài phạm vi môn & PASS & Hệ thống từ chối đúng và không bịa câu trả lời. \\
+Refusal prompt injection & Cố tình phá guardrail & PASS & Guardrail vẫn giữ đúng hành vi từ chối. \\
+\bottomrule
+\end{longtable}
+
+\section{Kết quả weekly synthetic eval}
+
+\subsection{Mastery theo từng nguồn tín hiệu}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{L{4.0cm} r r r r}
+\toprule
+\textbf{Nguồn tín hiệu} & \textbf{Số mẫu} & \textbf{RMSE} & \textbf{Predicted Avg} & \textbf{Actual Avg} \\
+\midrule
+Entry diagnostic quiz & 1800 & 0.5090 & 0.4254 & 0.6250 \\
+System quiz & 1020 & 0.4701 & 0.5357 & 0.6657 \\
+Workspace quiz & 1560 & 0.4698 & 0.5053 & 0.6590 \\
+\bottomrule
+\end{tabularx}
+\caption{Phân rã mastery theo từng nguồn tín hiệu synthetic}
+\end{table}
+
+\subsection{Diễn giải}
+
+Kết quả weekly cho thấy mô hình mastery hiện có xu hướng dự báo thấp hơn kết quả quan sát ở cả ba nguồn tín hiệu, thể hiện qua việc \texttt{Predicted Avg} đều thấp hơn \texttt{Actual Avg}. Trong phạm vi pipeline hiện tại, các ngưỡng được sử dụng như regression gate nhằm phát hiện suy giảm bất thường giữa các lần chạy synthetic liên tiếp.
+
+Scheduler weekly không ghi nhận cảnh báo vượt ngân sách cũng như sự gia tăng bất thường của cảnh báo thiếu độ phủ. Kết quả này cho thấy logic lập kế hoạch hiện duy trì được tính ổn định trên cohort synthetic đang sử dụng.
+
+\section{Kết luận}
+
+Kết quả thực nghiệm hiện tại cho thấy hệ thống đánh giá đã đáp ứng ba mục tiêu chính:
+\begin{itemize}
+    \item Hình thành một scorecard hợp nhất cho cả ba lớp đánh giá: CI, online và weekly.
+    \item Triển khai đánh giá RAG online trên dữ liệu thực TTHCM với tiếng Việt xuyên suốt trong đường eval và artifact liên quan.
+    \item Duy trì weekly synthetic regression như một cơ chế theo dõi suy giảm cho mastery và scheduler.
+\end{itemize}
+
+\end{document}

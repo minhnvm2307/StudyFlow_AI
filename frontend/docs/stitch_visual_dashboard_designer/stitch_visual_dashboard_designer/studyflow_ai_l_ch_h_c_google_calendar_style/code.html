@@ -1,0 +1,482 @@
+<!DOCTYPE html><html lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>StudyFlow AI - Lịch học</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "text-secondary": "#6b7280",
+                        "background": "#f8f9fa",
+                        "primary-fixed": "#acf847",
+                        "tertiary-fixed-dim": "#eec200",
+                        "outline-variant": "#c1cab0",
+                        "surface-tint": "#416900",
+                        "outline": "#727a64",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "border-subtle": "#e5e7eb",
+                        "surface-container-highest": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "text-primary": "#111827",
+                        "on-tertiary-container": "#594700",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f8f9fa",
+                        "on-primary-fixed": "#102000",
+                        "primary": "#416900",
+                        "on-secondary-fixed-variant": "#005226",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "surface-container": "#edeeef",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-tertiary-fixed": "#231b00",
+                        "inverse-primary": "#91db2a",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#00210b",
+                        "secondary-fixed": "#a6f4b5",
+                        "tertiary-container": "#deb400",
+                        "on-primary-fixed-variant": "#304f00",
+                        "tertiary-fixed": "#ffe083",
+                        "on-secondary-container": "#24703e",
+                        "inverse-surface": "#2e3132",
+                        "tertiary": "#735c00",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary-container": "#a4f1b2",
+                        "error-red": "#ef4444",
+                        "on-surface": "#191c1d",
+                        "secondary-fixed-dim": "#8bd79b",
+                        "on-background": "#191c1d",
+                        "surface-container-low": "#f3f4f5",
+                        "primary-container": "#84cc16",
+                        "on-primary-container": "#315200",
+                        "primary-fixed-dim": "#91db2a",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "secondary": "#1f6c3a",
+                        "card-background": "#ffffff",
+                        "surface": "#F6FAF2",
+                        "on-surface-variant": "#424936",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "calendar-green": "#dcfce7",
+                        "calendar-green-text": "#166534",
+                        "calendar-blue": "#dbeafe",
+                        "calendar-blue-text": "#1e40af",
+                        "calendar-purple": "#f3e8ff",
+                        "calendar-purple-text": "#6b21a8",
+                        "calendar-pink": "#fce7f3",
+                        "calendar-pink-text": "#9d174d",
+                        "calendar-orange": "#ffedd5",
+                        "calendar-orange-text": "#9a3412"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "16px",
+                        "gutter": "24px",
+                        "card-padding": "20px",
+                        "base": "4px",
+                        "margin-page": "32px"
+                    },
+                    "fontFamily": {
+                        "metadata": ["Inter", "sans-serif"],
+                        "label-caps": ["Inter", "sans-serif"],
+                        "body-base": ["Inter", "sans-serif"],
+                        "title-sm": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "headline-md-mobile": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "metadata": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-base": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md-mobile": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-base text-text-primary h-screen w-full flex flex-col overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface border-b border-border-subtle shadow-sm docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-margin-page py-4 max-w-[1920px] mx-auto h-16 shrink-0">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-[28px]">school</span>
+<span class="text-headline-md font-headline-md font-bold text-primary">StudyFlow Calendar</span>
+</div>
+<div class="flex items-center gap-6">
+<!-- Navigation Links -->
+<nav class="hidden md:flex gap-6"><a class="text-text-secondary hover:text-primary transition-colors duration-200 text-label-caps font-label-caps" href="#">Trang chủ</a><a class="text-text-secondary hover:text-primary transition-colors duration-200 text-label-caps font-label-caps" href="#">Môn học</a><a class="text-primary font-bold transition-colors duration-200 text-label-caps font-label-caps border-b-2 border-primary pb-1" href="#">Lịch học</a><a class="text-text-secondary hover:text-primary transition-colors duration-200 text-label-caps font-label-caps" href="#">Chatbot</a></nav>
+<div class="h-6 w-[1px] bg-border-subtle mx-2"></div>
+<div class="flex items-center gap-4">
+<button class="text-text-secondary hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-text-secondary hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="text-text-secondary hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="text-text-secondary hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">apps</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-white font-bold cursor-pointer">
+<img alt="User profile" class="w-full h-full rounded-full object-cover" data-alt="A stylized portrait of a student avatar. A friendly, modern digital illustration of a young scholar. Soft lighting, clean lines, and a professional yet approachable aesthetic. Designed to match a minimalist AI-first educational platform's identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBdI_fsJhntSRuzfmXc65NNyc-XerklEZCNye50gM6OgL-nOl_v50KVWVaq0q2uGrAo42YEad968hj0ZABLQaFdyZAhXLwKg_HBjYFlAdtRjU_IyMQOdQLvBB-GD6FbHUlU5yrn_sCQVhqRACWQD0ORmvVvbfcM-wHqm7oXThV5-4Grk0qA3DrrPNz23ZrbashlthpyA8j2IeE3XR5V8uJ9W8gKpf_ehZHkGsMGm9Mpt_Wqr-tCwAWDCGCmhfJHhNdxoOaMB2DLtL2">
+</div>
+</div>
+</div>
+</header>
+<!-- Calendar Toolbar -->
+<div class="bg-surface border-b border-border-subtle h-14 flex items-center justify-between px-6 shrink-0">
+<div class="flex items-center gap-4">
+<button class="px-4 py-1.5 border border-border-subtle rounded text-body-sm font-body-sm text-text-primary bg-card-background hover:bg-surface-container-low transition-colors">
+                Hôm nay
+            </button>
+<div class="flex items-center gap-1">
+<button class="p-1 text-text-secondary hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="p-1 text-text-secondary hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<h2 class="text-headline-md-mobile font-headline-md-mobile text-text-primary ml-2">Tháng 6, 2026</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<button class="flex items-center gap-2 px-3 py-1.5 border border-border-subtle rounded text-body-sm font-body-sm text-text-primary bg-card-background hover:bg-surface-container-low transition-colors">
+                    Tuần
+                    <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="flex flex-1 overflow-hidden">
+<!-- Left Utility Panel -->
+<aside class="w-[280px] bg-surface border-r border-border-subtle flex flex-col p-4 gap-6 shrink-0 overflow-y-auto hide-scrollbar">
+<!-- Create Task Button -->
+<button class="w-full flex items-center gap-3 bg-card-background border border-border-subtle rounded-full py-3 px-4 hover:shadow-sm transition-shadow">
+<span class="material-symbols-outlined text-primary text-[24px]">add</span>
+<span class="text-body-base font-title-sm text-text-primary">Tạo nhiệm vụ học</span>
+</button>
+<!-- Mini Calendar -->
+<div class="bg-card-background rounded-lg border border-border-subtle p-4">
+<div class="flex items-center justify-between mb-4">
+<span class="text-body-sm font-title-sm text-text-primary">Tháng 6 2026</span>
+<div class="flex">
+<button class="text-text-secondary hover:text-text-primary"><span class="material-symbols-outlined text-[16px]">chevron_left</span></button>
+<button class="text-text-secondary hover:text-text-primary"><span class="material-symbols-outlined text-[16px]">chevron_right</span></button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center mb-2">
+<div class="text-metadata text-text-secondary">T2</div>
+<div class="text-metadata text-text-secondary">T3</div>
+<div class="text-metadata text-text-secondary">T4</div>
+<div class="text-metadata text-text-secondary">T5</div>
+<div class="text-metadata text-text-secondary">T6</div>
+<div class="text-metadata text-text-secondary">T7</div>
+<div class="text-metadata text-text-secondary">CN</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center text-body-sm font-body-sm">
+<div class="text-text-secondary opacity-50 py-1">25</div>
+<div class="text-text-secondary opacity-50 py-1">26</div>
+<div class="text-text-secondary opacity-50 py-1">27</div>
+<div class="text-text-secondary opacity-50 py-1">28</div>
+<div class="text-text-secondary opacity-50 py-1">29</div>
+<div class="text-text-secondary opacity-50 py-1">30</div>
+<div class="text-text-secondary opacity-50 py-1">31</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">1</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">2</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">3</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">4</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">5</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">6</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">7</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">8</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">9</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">10</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">11</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">12</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">13</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">14</div>
+<div class="py-1 bg-primary-container text-white rounded-full font-bold cursor-pointer">15</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">16</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">17</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">18</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">19</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">20</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">21</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">22</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">23</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">24</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">25</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">26</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">27</div>
+<div class="py-1 hover:bg-surface-container-low rounded cursor-pointer">28</div>
+</div>
+</div>
+<!-- Attention Notice -->
+<div class="bg-error-container border border-error/20 rounded-lg p-4 flex flex-col gap-3">
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+<span class="text-body-sm font-title-sm">Cần chú ý</span>
+</div>
+<p class="text-body-sm text-text-primary">Có 2 nhiệm vụ học đã bị trễ trong tuần này.</p>
+<button class="bg-card-background border border-border-subtle rounded py-1.5 px-3 text-body-sm font-title-sm text-text-primary hover:bg-surface-container-lowest self-start shadow-sm">
+                    Lập lại lịch
+                </button>
+</div>
+<!-- Courses List -->
+<div>
+<h3 class="text-body-sm font-title-sm text-text-primary mb-3">Môn học</h3>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-5 h-5 rounded border border-border-subtle bg-calendar-green flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-calendar-green-text filled-icon">check</span>
+</div>
+<span class="text-body-sm text-text-primary group-hover:text-primary transition-colors">Đại số tuyến tính</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-5 h-5 rounded border border-border-subtle bg-calendar-blue flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-calendar-blue-text filled-icon">check</span>
+</div>
+<span class="text-body-sm text-text-primary group-hover:text-primary transition-colors">Giải tích</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-5 h-5 rounded border border-border-subtle bg-calendar-purple flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-calendar-purple-text filled-icon">check</span>
+</div>
+<span class="text-body-sm text-text-primary group-hover:text-primary transition-colors">Thuật toán nâng cao</span>
+</label>
+</div>
+</div>
+<!-- Task Types Filter -->
+<div>
+<h3 class="text-body-sm font-title-sm text-text-primary mb-3">Loại nhiệm vụ</h3>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-border-subtle text-primary focus:ring-primary w-5 h-5" type="checkbox">
+<span class="text-body-sm text-text-primary group-hover:text-primary transition-colors">Bài giảng</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-border-subtle text-primary focus:ring-primary w-5 h-5" type="checkbox">
+<span class="text-body-sm text-text-primary group-hover:text-primary transition-colors">Bài tập</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-border-subtle text-primary focus:ring-primary w-5 h-5" type="checkbox">
+<span class="text-body-sm text-text-primary group-hover:text-primary transition-colors">Ôn tập (AI)</span>
+</label>
+</div>
+</div>
+</aside>
+<!-- Main Calendar Grid -->
+<main class="flex-1 bg-card-background flex flex-col relative overflow-hidden">
+<!-- Day Headers -->
+<div class="flex border-b border-border-subtle shrink-0">
+<div class="w-16 border-r border-border-subtle shrink-0"></div> <!-- Time column spacer -->
+<div class="flex-1 grid grid-cols-7 text-center">
+<div class="py-3 border-r border-border-subtle flex flex-col items-center justify-center gap-1">
+<span class="text-metadata text-text-secondary uppercase">T2</span>
+<span class="text-headline-md-mobile text-text-primary">15</span>
+</div>
+<div class="py-3 border-r border-border-subtle flex flex-col items-center justify-center gap-1 bg-surface-container-low/50">
+<span class="text-metadata text-primary uppercase font-bold">T3</span>
+<span class="text-headline-md-mobile text-white bg-primary rounded-full w-8 h-8 flex items-center justify-center">16</span>
+</div>
+<div class="py-3 border-r border-border-subtle flex flex-col items-center justify-center gap-1">
+<span class="text-metadata text-text-secondary uppercase">T4</span>
+<span class="text-headline-md-mobile text-text-primary">17</span>
+</div>
+<div class="py-3 border-r border-border-subtle flex flex-col items-center justify-center gap-1">
+<span class="text-metadata text-text-secondary uppercase">T5</span>
+<span class="text-headline-md-mobile text-text-primary">18</span>
+</div>
+<div class="py-3 border-r border-border-subtle flex flex-col items-center justify-center gap-1">
+<span class="text-metadata text-text-secondary uppercase">T6</span>
+<span class="text-headline-md-mobile text-text-primary">19</span>
+</div>
+<div class="py-3 border-r border-border-subtle flex flex-col items-center justify-center gap-1">
+<span class="text-metadata text-text-secondary uppercase">T7</span>
+<span class="text-headline-md-mobile text-text-primary">20</span>
+</div>
+<div class="py-3 flex flex-col items-center justify-center gap-1">
+<span class="text-metadata text-text-secondary uppercase">CN</span>
+<span class="text-headline-md-mobile text-text-primary">21</span>
+</div>
+</div>
+</div>
+<!-- Scrollable Grid Area -->
+<div class="flex-1 overflow-y-auto relative bg-card-background">
+<div class="flex min-w-full relative" style="height: 960px;"> <!-- 16 hours * 60px -->
+<!-- Time Labels -->
+<div class="w-16 border-r border-border-subtle shrink-0 flex flex-col relative z-10 bg-card-background">
+<!-- 07:00 to 22:00 -->
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">07:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">08:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">09:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">10:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">11:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">12:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">13:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">14:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">15:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">16:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">17:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">18:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">19:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">20:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">21:00</span></div>
+<div class="h-[60px] relative"><span class="absolute top-[-10px] right-2 text-metadata text-text-secondary">22:00</span></div>
+</div>
+<!-- Grid Lines and Events -->
+<div class="flex-1 grid grid-cols-7 relative">
+<!-- Horizontal Grid Lines -->
+<div class="absolute inset-0 z-0 pointer-events-none flex flex-col">
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+<div class="h-[60px] border-b border-border-subtle w-full"></div>
+</div>
+<!-- Columns Vertical Dividers & Today Highlight -->
+<div class="border-r border-border-subtle h-full relative z-0"></div>
+<div class="border-r border-border-subtle h-full relative z-0 bg-surface-container-low/30"> <!-- Today -->
+<!-- Current Time Indicator -->
+<div class="absolute w-full h-[2px] bg-error z-20" style="top: 700px;"> <!-- Approx 18:40 -->
+<div class="absolute left-[-4px] top-[-3px] w-2 h-2 rounded-full bg-error"></div>
+</div>
+</div>
+<div class="border-r border-border-subtle h-full relative z-0"></div>
+<div class="border-r border-border-subtle h-full relative z-0"></div>
+<div class="border-r border-border-subtle h-full relative z-0"></div>
+<div class="border-r border-border-subtle h-full relative z-0"></div>
+<div class="h-full relative z-0"></div>
+<!-- EVENT BLOCKS (Overlayed on Column 2 - Today) -->
+<div class="absolute inset-0 grid grid-cols-7 z-10 pointer-events-none">
+<div class="col-start-2 relative h-full">
+<!-- 18:00–18:20: Quiz: Không gian vector (Màu xanh lá) - Top: (18-7)*60 = 660px, H: 20px -->
+<div class="absolute left-1 right-1 bg-calendar-green border border-calendar-green-text/20 rounded-[4px] p-1 overflow-hidden cursor-pointer pointer-events-auto hover:shadow-md transition-shadow shadow-sm z-30" style="top: 660px; height: 30px;"> <!-- Increased height slightly for visibility -->
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-calendar-green-text"></div>
+<span class="text-[10px] font-title-sm text-calendar-green-text leading-tight truncate">18:00 Quiz: Không gian vector</span>
+</div>
+</div>
+<!-- POPOVER DETAILED VIEW FOR QUIZ (Visible State) -->
+<div class="absolute bg-card-background rounded-xl shadow-lg border border-border-subtle w-[320px] p-4 pointer-events-auto z-50 flex flex-col gap-3" style="top: 660px; left: calc(100% + 8px);">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-calendar-green-text"></div>
+<h4 class="text-title-sm text-text-primary">Quiz: Không gian vector</h4>
+</div>
+<button class="text-text-secondary hover:text-text-primary"><span class="material-symbols-outlined text-[18px]">close</span></button>
+</div>
+<div class="text-body-sm text-text-secondary">Thứ 3, 16 tháng 6 · 18:00 – 18:20</div>
+<div class="flex flex-col gap-2 mt-1">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-text-secondary text-[18px]">subject</span>
+<span class="text-body-sm text-text-primary">Đại số tuyến tính</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-text-secondary text-[18px]">psychology</span>
+<div class="flex items-center gap-2">
+<span class="text-body-sm text-text-primary">Lý do: Mastery 42%</span>
+<div class="h-1.5 w-16 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim w-[42%]"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-text-secondary text-[18px]">description</span>
+<span class="text-body-sm text-primary hover:underline cursor-pointer truncate">lecture_01_vector_space.pdf</span>
+</div>
+</div>
+<div class="flex justify-end gap-2 mt-2 pt-3 border-t border-border-subtle">
+<button class="px-3 py-1.5 rounded border border-border-subtle text-body-sm text-text-secondary hover:bg-surface-container-low transition-colors">Dời lịch</button>
+<button class="px-4 py-1.5 rounded-full bg-primary-container text-white text-body-sm font-title-sm hover:opacity-90 transition-opacity">Bắt đầu học</button>
+</div>
+</div>
+<!-- 19:00–19:15: Flashcard: Tích phân từng phần (Màu xanh dương nhạt) - Top: 720px, H: 15px -->
+<div class="absolute left-1 right-1 bg-calendar-blue border border-calendar-blue-text/20 rounded-[4px] p-1 overflow-hidden cursor-pointer pointer-events-auto hover:shadow-md transition-shadow" style="top: 720px; height: 25px;">
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-calendar-blue-text"></div>
+<span class="text-[10px] font-title-sm text-calendar-blue-text leading-tight truncate">19:00 Flashcard: Tích...</span>
+</div>
+</div>
+<!-- 19:30–20:00: Ôn tập: Dynamic Programming (Màu tím nhạt) - Top: 750px, H: 30px -->
+<div class="absolute left-1 right-1 bg-calendar-purple border border-calendar-purple-text/20 rounded-md p-1.5 overflow-hidden cursor-pointer pointer-events-auto hover:shadow-md transition-shadow" style="top: 750px; height: 30px;">
+<div class="flex items-center gap-1 h-full">
+<div class="w-1.5 h-1.5 rounded-full bg-calendar-purple-text"></div>
+<span class="text-[11px] font-title-sm text-calendar-purple-text leading-tight truncate">19:30 Ôn tập: Dynamic Prog...</span>
+</div>
+</div>
+<!-- 20:00–21:00: Mock test: Đại số tuyến tính (Màu đỏ/hồng nhạt) - Top: 780px, H: 60px -->
+<div class="absolute left-1 right-1 bg-calendar-pink border border-calendar-pink-text/20 rounded-md p-2 overflow-hidden cursor-pointer pointer-events-auto hover:shadow-md transition-shadow" style="top: 780px; height: 60px;">
+<div class="flex items-start gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-calendar-pink-text mt-1"></div>
+<div class="flex flex-col">
+<span class="text-metadata font-title-sm text-calendar-pink-text leading-tight">20:00 - 21:00</span>
+<span class="text-body-sm font-title-sm text-calendar-pink-text leading-tight mt-0.5">Mock test: Đại số tuyến tính</span>
+</div>
+</div>
+</div>
+<!-- 21:00–21:10: Hỏi AI: Bài sai gần đây (Màu cam nhạt) - Top: 840px, H: 10px -->
+<div class="absolute left-1 right-1 bg-calendar-orange border border-calendar-orange-text/20 rounded-[4px] p-0.5 px-1 overflow-hidden cursor-pointer pointer-events-auto hover:shadow-md transition-shadow" style="top: 840px; height: 20px;">
+<div class="flex items-center gap-1 h-full">
+<div class="w-1.5 h-1.5 rounded-full bg-calendar-orange-text"></div>
+<span class="text-[9px] font-title-sm text-calendar-orange-text leading-tight truncate">21:00 Hỏi AI: Bài sai</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+</body></html>

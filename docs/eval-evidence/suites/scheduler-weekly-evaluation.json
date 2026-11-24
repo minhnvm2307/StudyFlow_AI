@@ -1,0 +1,53 @@
+{
+  "suite": "Scheduler weekly evaluation",
+  "pillar": "scheduler",
+  "profile": "weekly",
+  "status": "passed",
+  "passed": 1,
+  "failed": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "name": "synthetic-cohort",
+      "status": "passed",
+      "metrics": {
+        "over_budget_warning_rate": 0.0,
+        "coverage_warning_count": 0
+      }
+    }
+  ],
+  "metrics": {
+    "over_budget_warning_rate": 0.0,
+    "coverage_warning_count": 0
+  },
+  "thresholds": [
+    {
+      "metric": "Over-budget warning rate",
+      "status": "passed",
+      "value": 0.0,
+      "target": 0.1,
+      "operator": "lt",
+      "tolerance": 0.02,
+      "metricKey": "over_budget_warning_rate"
+    },
+    {
+      "metric": "Coverage warning regression",
+      "status": "passed",
+      "value": 0.0,
+      "target": 0.0,
+      "operator": "eq",
+      "tolerance": 0.0,
+      "metricKey": "coverage_warning_count"
+    }
+  ],
+  "artifact_paths": {
+    "log": "artifacts\\eval\\logs\\synthetic-cohort-evaluation.log",
+    "runDir": "artifacts\\eval\\weekly\\20260707T205705Z",
+    "cohortJson": "artifacts\\eval\\weekly\\20260707T205705Z\\synthetic_cohort.json",
+    "cohortMarkdown": "artifacts\\eval\\weekly\\20260707T205705Z\\synthetic_cohort.md"
+  },
+  "notes": [],
+  "description": "Synthetic cohort regression for scheduler warning metrics.",
+  "command": "C:\\Python313\\python.exe scripts/seed_synthetic_eval.py --reset --prefix synthetic-eval --users 6 --history-days 28 --output-dir C:\\Users\\Admin\\Desktop\\VinUNI\\vin2\\C2-App-132\\artifacts\\eval\\weekly\\20260707T205705Z",
+  "return_code": 0
+}

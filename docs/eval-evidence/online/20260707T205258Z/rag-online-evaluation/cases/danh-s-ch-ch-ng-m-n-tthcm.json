@@ -1,0 +1,20 @@
+{
+  "name": "Danh sách chương môn TTHCM",
+  "status": "passed",
+  "kind": "tool_route",
+  "query": "Môn Tư tưởng Hồ Chí Minh có những chương nào?",
+  "metrics": {
+    "answer_relevance": 1.0
+  },
+  "artifacts": {
+    "guardrailReport": "C:\\Users\\Admin\\Desktop\\VinUNI\\vin2\\C2-App-132\\artifacts\\eval\\online\\20260707T205258Z\\rag-online-evaluation\\guardrail_report.md"
+  },
+  "notes": "",
+  "answer": "Dưới đây là danh sách các chương của môn **Tư tưởng Hồ Chí Minh**:\n\n1. **Chương 1:** Khái niệm, đối tượng, phương pháp nghiên cứu và ý nghĩa học tập môn Tư tưởng Hồ Chí Minh  \n2. **Chương 2:** Cơ sở, quá trình hình thành và phát triển tư tưởng Hồ Chí Minh  \n3. **Chương 3:** Tư tưởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội  \n4. **Chương 4:** Tư tưởng Hồ Chí Minh về Đảng Cộng sản Việt Nam và Nhà nước của nhân dân, do nhân dân, vì nhân dân  \n5. **Chương 5:** Tư tưởng Hồ Chí Minh về đại đoàn kết dân tộc và đoàn kết quốc tế  \n6. **Chương 6:** Tư tưởng Hồ Chí Minh về văn hóa, đạo đức, con người  \n\nNếu bạn muốn xem chi tiết các chủ đề bên trong một chương nào đó, hãy cho mình biết nhé!",
+  "judgeReasons": {
+    "answer_relevance": "Độ liên quan được tính bằng mức giống nhau giữa câu hỏi gốc và câu hỏi suy ra từ câu trả lời."
+  },
+  "debug": {
+    "mode": "langchain_react_agent"
+  }
+}

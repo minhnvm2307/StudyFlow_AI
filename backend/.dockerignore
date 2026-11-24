@@ -1,0 +1,41 @@
+# Dependencies & venvs
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# Test & dev
+tests/
+scripts/
+docs/
+data/
+.pytest_cache/
+.mypy_cache/
+
+# Env files (secrets)
+.env*
+
+# DB migrations (run at startup)
+# alembic/ and alembic.ini must be copied into container
+
+# Docs
+*.md
+LICENSE
+
+# Docker (no recursive build context)
+Dockerfile
+docker-compose.yml
+docker-compose*.yml
+
+# Logs
+logs/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Railway config
+railway.json

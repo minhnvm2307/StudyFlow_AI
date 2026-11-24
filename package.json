@@ -1,0 +1,16 @@
+{
+  "name": "studyflow-ai",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/run-dev.cjs",
+    "dev:windows": "powershell -ExecutionPolicy Bypass -File scripts/run-dev.ps1",
+    "build": "npm run build --prefix frontend",
+    "eval:scorecard": "python scripts/run_eval_scorecard.py --profile ci",
+    "seed": "python backend/scripts/seed_midterm_user.py",
+    "seed:midterm-user": "python backend/scripts/seed_midterm_user.py",
+    "seed:synthetic-eval": "python scripts/seed_synthetic_eval.py --reset",
+    "seed:mac-lenin": "python backend/scripts/seed_mac_lenin.py",
+    "seed:tthcm": "python backend/scripts/seed_tthcm.py"
+  }
+}

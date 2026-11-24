@@ -1,0 +1,131 @@
+{
+  "name": "Khái niệm tư tưởng Hồ Chí Minh",
+  "status": "passed",
+  "kind": "rag_answer",
+  "query": "Khái niệm tư tưởng Hồ Chí Minh là gì?",
+  "metrics": {
+    "faithfulness": 0.95,
+    "answer_relevance": 0.7013068210236144,
+    "retrieval_recall_at_5": 0.97
+  },
+  "artifacts": {
+    "guardrailReport": "C:\\Users\\Admin\\Desktop\\VinUNI\\vin2\\C2-App-132\\artifacts\\eval\\online\\20260707T205258Z\\rag-online-evaluation\\guardrail_report.md"
+  },
+  "notes": "",
+  "answer": "**Khái niệm “Tư tưởng Hồ Chí Minh”**  \n\nTư tưởng Hồ Chí Minh là hệ thống quan điểm, nguyên tắc và phương pháp cách mạng do Chủ tịch Hồ Chí Minh đề ra, dựa trên nền tảng chủ nghĩa Mác‑Lênin, kết hợp với truyền thống yêu nước, thực tiễn lịch sử và đặc thù xã hội Việt Nam. Nó bao gồm:\n\n1. **Độc lập dân tộc** – đấu tranh giành tự do, chủ quyền cho dân tộc.  \n2. **Xây dựng chủ nghĩa xã hội** – dựa trên nền tảng xã hội công bằng, phát triển kinh tế, văn hoá, đạo đức.  \n3. **Đảng Cộng sản Việt Nam** – là lực lượng lãnh đạo cách mạng, đại diện cho lợi ích của nhân dân.  \n4. **Nhà nước của nhân dân, do nhân dân, vì nhân dân** – mô hình nhà nước dân chủ xã hội chủ nghĩa.  \n5. **Đại đoàn kết dân tộc và đoàn kết quốc tế** – gắn kết các tầng lớp trong nước và hợp tác với các nước tiến bộ.  \n6. **Văn hoá, đạo đức, con người** – phát triển con người toàn diện, xây dựng xã hội văn minh, đạo đức.  \n\nTư tưởng này không chỉ là lý thuyết mà còn là kim chỉ nam cho mọi hoạt động cách mạng, xây dựng và phát triển đất nước Việt Nam trong mọi thời kỳ.",
+  "retrievedChunkIds": [
+    "chunk-subject-tthcm-evaluation-104",
+    "chunk-subject-tthcm-evaluation-1",
+    "chunk-subject-tthcm-evaluation-20",
+    "chunk-subject-tthcm-evaluation-3",
+    "chunk-subject-tthcm-evaluation-200"
+  ],
+  "sourceRefs": [
+    {
+      "id": 1,
+      "sourceId": "source-subject-tthcm-evaluation",
+      "documentId": "source-subject-tthcm-evaluation",
+      "chunkId": "chunk-subject-tthcm-evaluation-104",
+      "chunkIds": [
+        "chunk-subject-tthcm-evaluation-104",
+        "chunk-subject-tthcm-evaluation-228"
+      ],
+      "filename": "TÀI LIỆU HỌC TẬP HP TƯ TƯỞNG HỒ CHÍ MINH.docx",
+      "page": null,
+      "pageStart": null,
+      "pageEnd": null,
+      "section": "Chunks 227-228",
+      "sectionTitle": "",
+      "quote": "Vận dụng tƣ tƣởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội trong giai đoạn hiện nay là phải tích cực thực hiện, thực hiện có hiệu quả các nghị quyết của Đảng, trong đó các nghị quyết về xây dựng Đảng giữ vị trí rất quan trọng vì xây dựng Đảng là nhiệm vụ then chốt trong sự nghiệp đổi mới.\n\nHồ Chí Minh chƣa sử dụng những khái niệm nhƣ “suy thoái” về tƣ tƣởng chính trị, đạo đức, lối sống”; “tự diễn biến”; “tự chuyển hóa” nhƣng Ngƣời đã đề cập đến nhiều “căn bệnh” biểu hiện của nó và đã cảnh bảo về tác hại của những “căn bệnh” này. Tăng cường xây dựng, chỉnh đốn Đảng; ngăn chặn, đẩy lùi sự suy thoái về tư tưởng chính trị, đạo đức, lối sống, “tự diễn biến”, “tự chuyển hóa” trong nội bộ là những hành động cụ thể, đặt trong bối cảnh cụ thể mà Đảng đã tiếp tục thực hiện tƣ tƣởng Hồ Chí Minh để Đảng xứng đáng là Đảng cầm quyền, thực hiện đƣợc nhiệm vụ của Đảng cầm quyền trong sự nghiệp xây dựng đất nƣớc vì mục tiêu dân giàu, nƣớc mạnh, dân chủ, công bằng, văn minh để giữ vững nền độc lập dân tộc trên con đƣờng quá độ đi lên chủ nghĩa xã hội.\n\nCÂU HỎI ÔN TẬP\n\nPhân tích tính đúng đắn và sáng tạo trong tƣ tƣởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội?\n\nPhân tích tƣ tƣởng Hồ Chí Minh về thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam?\n\nNêu bối cảnh xã hội Việt Nam hiện nay và những yêu cầu cơ bản trong việc vận dụng tƣ tƣởng Hồ Chí Minh về độc lập dân tộc gắn liền với chủ nghĩa xã hội?\n\nĐạo đức Hồ Chí Minh là đạo đức của bậc “đại nhân, đại trí, đại dũng”, của một vĩ nhân, một lãnh tụ cách mạng, một ngƣời cộng sản ƣu tú; đồng thời, cũng là đạo đức của một ngƣời chân chính, bình thƣờng, gần gũi ai cũng có thể học tập và làm theo để trở thành ngƣời cách mạng, ngƣời công dân tốt hơn. Hồ Chí Minh là “là tấm gương sáng, là hiện thân của nền đạo đức cách mạng Việt Nam, mãi mãi là ngọn đèn pha chiếu rọi con đường rèn luyện, phấn đấu để trở nên “tốt” hơn, đạt đến “chân",
+      "passage": "Vận dụng tƣ tƣởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội trong giai đoạn hiện nay là phải tích cực thực hiện, thực hiện có hiệu quả các nghị quyết của Đảng, trong đó các nghị quyết về xây dựng Đảng giữ vị trí rất quan trọng vì xây dựng Đảng là nhiệm vụ then chốt trong sự nghiệp đổi mới.\n\nHồ Chí Minh chƣa sử dụng những khái niệm nhƣ “suy thoái” về tƣ tƣởng chính trị, đạo đức, lối sống”; “tự diễn biến”; “tự chuyển hóa” nhƣng Ngƣời đã đề cập đến nhiều “căn bệnh” biểu hiện của nó và đã cảnh bảo về tác hại của những “căn bệnh” này. Tăng cường xây dựng, chỉnh đốn Đảng; ngăn chặn, đẩy lùi sự suy thoái về tư tưởng chính trị, đạo đức, lối sống, “tự diễn biến”, “tự chuyển hóa” trong nội bộ là những hành động cụ thể, đặt trong bối cảnh cụ thể mà Đảng đã tiếp tục thực hiện tƣ tƣởng Hồ Chí Minh để Đảng xứng đáng là Đảng cầm quyền, thực hiện đƣợc nhiệm vụ của Đảng cầm quyền trong sự nghiệp xây dựng đất nƣớc vì mục tiêu dân giàu, nƣớc mạnh, dân chủ, công bằng, văn minh để giữ vững nền độc lập dân tộc trên con đƣờng quá độ đi lên chủ nghĩa xã hội.\n\nCÂU HỎI ÔN TẬP\n\nPhân tích tính đúng đắn và sáng tạo trong tƣ tƣởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội?\n\nPhân tích tƣ tƣởng Hồ Chí Minh về thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam?\n\nNêu bối cảnh xã hội Việt Nam hiện nay và những yêu cầu cơ bản trong việc vận dụng tƣ tƣởng Hồ Chí Minh về độc lập dân tộc gắn liền với chủ nghĩa xã hội?\n\nĐạo đức Hồ Chí Minh là đạo đức của bậc “đại nhân, đại trí, đại dũng”, của một vĩ nhân, một lãnh tụ cách mạng, một ngƣời cộng sản ƣu tú; đồng thời, cũng là đạo đức của một ngƣời chân chính, bình thƣờng, gần gũi ai cũng có thể học tập và làm theo để trở thành ngƣời cách mạng, ngƣời công dân tốt hơn. Hồ Chí Minh là “là tấm gương sáng, là hiện thân của nền đạo đức cách mạng Việt Nam, mãi mãi là ngọn đèn pha chiếu rọi con đường rèn luyện, phấn đấu để trở nên “tốt” hơn, đạt đến “chân",
+      "excerpt": "Vận dụng tƣ tƣởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội trong giai đoạn hiện nay là phải tích cực thực hiện, thực hiện có hiệu quả các nghị quyết của Đảng, trong đó các nghị quyết về xây dựng Đảng giữ vị trí rất quan trọng vì x"
+    },
+    {
+      "id": 2,
+      "sourceId": "source-subject-tthcm-evaluation",
+      "documentId": "source-subject-tthcm-evaluation",
+      "chunkId": "chunk-subject-tthcm-evaluation-1",
+      "chunkIds": [
+        "chunk-subject-tthcm-evaluation-1",
+        "chunk-subject-tthcm-evaluation-149"
+      ],
+      "filename": "TÀI LIỆU HỌC TẬP HP TƯ TƯỞNG HỒ CHÍ MINH.docx",
+      "page": null,
+      "pageStart": null,
+      "pageEnd": null,
+      "section": "Chunks 6-7",
+      "sectionTitle": "",
+      "quote": "KHÁI NIỆM, ĐỐI TƢỢNG, PHƢƠNG PHÁP NGHIÊN CỨU VÀ Ý NGHĨA HỌC TẬP MÔN TƢ TƢỞNG HỒ CHÍ MINH\n\nMỤC TIÊU\n\nVề kiến thức: Góp phần trang bị cho sinh viên những kiến thức cơ bản về một số vấn đề chung (nhập môn) của môn học Tƣ tƣởng Hồ Chí Minh.\n\nVề kỹ năng: Qua nghiên cứu môn học Tƣ tƣởng Hồ Chí Minh, sinh viên bƣớc đầu có đƣợc tƣ duy và kỹ năng đúng đắn, phù hợp khi phân tích cả về mặt lý luận và thực tiễn các vấn đề đặt ra trong cuộc sống.\n\nVề tƣ tƣởng: Gúp cho sinh viên thấy rõ hơn vai trò của Hồ Chí Minh đối với sự phát triển của dân tộc Việt Nam, thêm tin tƣởng vào chế độ chính trị xã hội chủ nghĩa, tin tƣởng vào sự lãnh đạo của Đảng Cộng sản Việt Nam, góp phần tiếp thêm sức mạnh cho sinh viên về ý chí và hành động phấn đấu cho mục tiêu, lý tƣởng của cách mạng.\n\nNỘI DUNG\n\nI – KHÁI NIỆM TƢ TƢỞNG HỒ CHÍ MINH\n\nĐại hội đại biểu toàn quốc lần thứ XI của Đảng Cộng sản Việt Nam (năm 2011) nêu khái niệm “Tƣ tƣởng Hồ Chí Minh” nhƣ sau:\n\n“Tƣ tƣởng Hồ Chí Minh là một hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam, kết quả của sự vận dụng và phát triển sáng tạo chủ nghĩa Mác – Lênin vào điều kiện cụ thể của nƣớc ta, kế thừa và phát triển các giá trị truyền thống tốt đẹp của dân tộc, tiếp thu tinh hoa văn hóa nhân loại; là tài sản tinh thần vô cùng to lớn và quý giá của Đảng và dân tộc ta, mãi mãi soi đƣờng cho sự nghiệp cách mạng của nhân dân ta giành thắng lợi” .\n\nKhái niệm trên đây cũng chỉ rõ nội hàm cơ bản của tƣ tƣởng Hồ Chí Minh, cơ sở hình thành cũng nhƣ ý nghĩa của tƣ tƣởng Hồ Chí Minh.Cụ thể:\n\ntoàn dân tộc là vấn đề mang tính sống còn của dân tộc Việt Nam nên chiến lƣợc này đƣợc duy trì trong cả cách mạng dân tộc dân chủ nhân dân và cách mạng xã hội chủ nghĩa. Trong mỗi giai đoạn cách mạng, trƣớc những yêu cầu và nhiệm vụ khác nhau, chính sách và phƣơng pháp tập hợp đại đoàn kết có thể và cần thiết phải điều chỉnh cho phù hợp với từng ",
+      "passage": "KHÁI NIỆM, ĐỐI TƢỢNG, PHƢƠNG PHÁP NGHIÊN CỨU VÀ Ý NGHĨA HỌC TẬP MÔN TƢ TƢỞNG HỒ CHÍ MINH\n\nMỤC TIÊU\n\nVề kiến thức: Góp phần trang bị cho sinh viên những kiến thức cơ bản về một số vấn đề chung (nhập môn) của môn học Tƣ tƣởng Hồ Chí Minh.\n\nVề kỹ năng: Qua nghiên cứu môn học Tƣ tƣởng Hồ Chí Minh, sinh viên bƣớc đầu có đƣợc tƣ duy và kỹ năng đúng đắn, phù hợp khi phân tích cả về mặt lý luận và thực tiễn các vấn đề đặt ra trong cuộc sống.\n\nVề tƣ tƣởng: Gúp cho sinh viên thấy rõ hơn vai trò của Hồ Chí Minh đối với sự phát triển của dân tộc Việt Nam, thêm tin tƣởng vào chế độ chính trị xã hội chủ nghĩa, tin tƣởng vào sự lãnh đạo của Đảng Cộng sản Việt Nam, góp phần tiếp thêm sức mạnh cho sinh viên về ý chí và hành động phấn đấu cho mục tiêu, lý tƣởng của cách mạng.\n\nNỘI DUNG\n\nI – KHÁI NIỆM TƢ TƢỞNG HỒ CHÍ MINH\n\nĐại hội đại biểu toàn quốc lần thứ XI của Đảng Cộng sản Việt Nam (năm 2011) nêu khái niệm “Tƣ tƣởng Hồ Chí Minh” nhƣ sau:\n\n“Tƣ tƣởng Hồ Chí Minh là một hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam, kết quả của sự vận dụng và phát triển sáng tạo chủ nghĩa Mác – Lênin vào điều kiện cụ thể của nƣớc ta, kế thừa và phát triển các giá trị truyền thống tốt đẹp của dân tộc, tiếp thu tinh hoa văn hóa nhân loại; là tài sản tinh thần vô cùng to lớn và quý giá của Đảng và dân tộc ta, mãi mãi soi đƣờng cho sự nghiệp cách mạng của nhân dân ta giành thắng lợi” .\n\nKhái niệm trên đây cũng chỉ rõ nội hàm cơ bản của tƣ tƣởng Hồ Chí Minh, cơ sở hình thành cũng nhƣ ý nghĩa của tƣ tƣởng Hồ Chí Minh.Cụ thể:\n\ntoàn dân tộc là vấn đề mang tính sống còn của dân tộc Việt Nam nên chiến lƣợc này đƣợc duy trì trong cả cách mạng dân tộc dân chủ nhân dân và cách mạng xã hội chủ nghĩa. Trong mỗi giai đoạn cách mạng, trƣớc những yêu cầu và nhiệm vụ khác nhau, chính sách và phƣơng pháp tập hợp đại đoàn kết có thể và cần thiết phải điều chỉnh cho phù hợp với từng ",
+      "excerpt": "KHÁI NIỆM, ĐỐI TƢỢNG, PHƢƠNG PHÁP NGHIÊN CỨU VÀ Ý NGHĨA HỌC TẬP MÔN TƢ TƢỞNG HỒ CHÍ MINH MỤC TIÊU Về kiến thức: Góp phần trang bị cho sinh viên những kiến thức cơ bản về một số vấn đề chung (nhập môn) của môn học Tƣ tƣởng Hồ Chí Minh. Về kỹ"
+    },
+    {
+      "id": 3,
+      "sourceId": "source-subject-tthcm-evaluation",
+      "documentId": "source-subject-tthcm-evaluation",
+      "chunkId": "chunk-subject-tthcm-evaluation-20",
+      "chunkIds": [
+        "chunk-subject-tthcm-evaluation-20",
+        "chunk-subject-tthcm-evaluation-78"
+      ],
+      "filename": "TÀI LIỆU HỌC TẬP HP TƯ TƯỞNG HỒ CHÍ MINH.docx",
+      "page": null,
+      "pageStart": null,
+      "pageEnd": null,
+      "section": "Chunks 115-116",
+      "sectionTitle": "",
+      "quote": "Qua nghiên cứu môn học Tƣ tƣởng Hồ Chí Minh, ngƣời học có điều kiện vận dụng tốt hơn những kiến thức và kỹ năng đã nghiên cứu, học tập vào việc xây dựng phƣơng pháp học tập, tu dƣỡng, rèn luyện phù hợp với điều kiện cụ thể của bản thân. Ngƣời học có thể vận dụng xây dựng phong cách tƣ duy, phong cách diễn đạt, phong cách làm việc, phong cách ứng xử, phong cách sinh hoạt,… phù hợp hoàn cảnh nhƣ phƣơng châm của Hồ Chí Minh: Dĩ bất biến ứng vạn biến.\n\nTƣ tƣởng Hồ Chí Minh góp phần tích cực trong việc giáo dục thế hệ trẻ tiếp tục hình thành và hoàn thiện nhân cách, trở thành những chiễn sĩ tiên phong trong sự nghiệp xây dựng và bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa, góp phần làm cho đất nƣớc ngày càng đàng hoàng hơn, to đẹp hơn nhƣ khát vọng của Hồ Chí Minh và của mỗi ngƣời Việt Nam yêu nƣớc.\n\nCÂU HỎI ÔN TẬP\n\nQua nhận thức nội hàm khái niệm Tƣ tƣởng Hồ Chí Minh, hãy đƣa ra nhận xét về quá trình nhận thức của Đảng Cộng sản Việt Nam về tƣ tƣởng Hồ Chí Minh?\n\nPhân tích tầm quan trọng của việc sử dụng các phƣơng pháp nghiên cứu môn học Tƣ tƣởng Hồ Chí Minh?\n\nPhân tích giá trị, ý nghĩa Tƣ tƣởng Hồ Chí Minh?\n\nSo sánh các chế độ xã hội đã tồn tại trong lịch sử để thấy sự khác nhau về bản chất giữa chủ nghĩa xã hội với các chế độ khác, Hồ Chí Minh viết: “Trong xã hội có giai cấp bóc lột thống trị, chỉ có lợi ích cá nhân của một số rất ít ngƣời thuộc giai cấp thống trị là đƣợc thỏa mãn, còn lợi ích cá nhân của quần chúng lao động thì bị giày xéo. Trái lại, trong chế độ xã hội chủ nghĩa và cộng sản chủ nghĩa là chế độ do nhân dân lao động làm chủ, thì mỗi ngƣời là một bộ phận của tập thể, giữ một vị trí nhất định và đóng góp một phần công lao trong xã hội. Cho nên lợi ích cá nhân là nằm trong lợi ích của tập thể, là một bộ phận của lợi ích tập thể. Lợi ích chung của tập thể đƣợc bảo đảm thì lợi ích riêng của cá nhân mới có điều kiện đƣợc thỏa mãn”. Ngƣời khẳng định mục đích của ",
+      "passage": "Qua nghiên cứu môn học Tƣ tƣởng Hồ Chí Minh, ngƣời học có điều kiện vận dụng tốt hơn những kiến thức và kỹ năng đã nghiên cứu, học tập vào việc xây dựng phƣơng pháp học tập, tu dƣỡng, rèn luyện phù hợp với điều kiện cụ thể của bản thân. Ngƣời học có thể vận dụng xây dựng phong cách tƣ duy, phong cách diễn đạt, phong cách làm việc, phong cách ứng xử, phong cách sinh hoạt,… phù hợp hoàn cảnh nhƣ phƣơng châm của Hồ Chí Minh: Dĩ bất biến ứng vạn biến.\n\nTƣ tƣởng Hồ Chí Minh góp phần tích cực trong việc giáo dục thế hệ trẻ tiếp tục hình thành và hoàn thiện nhân cách, trở thành những chiễn sĩ tiên phong trong sự nghiệp xây dựng và bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa, góp phần làm cho đất nƣớc ngày càng đàng hoàng hơn, to đẹp hơn nhƣ khát vọng của Hồ Chí Minh và của mỗi ngƣời Việt Nam yêu nƣớc.\n\nCÂU HỎI ÔN TẬP\n\nQua nhận thức nội hàm khái niệm Tƣ tƣởng Hồ Chí Minh, hãy đƣa ra nhận xét về quá trình nhận thức của Đảng Cộng sản Việt Nam về tƣ tƣởng Hồ Chí Minh?\n\nPhân tích tầm quan trọng của việc sử dụng các phƣơng pháp nghiên cứu môn học Tƣ tƣởng Hồ Chí Minh?\n\nPhân tích giá trị, ý nghĩa Tƣ tƣởng Hồ Chí Minh?\n\nSo sánh các chế độ xã hội đã tồn tại trong lịch sử để thấy sự khác nhau về bản chất giữa chủ nghĩa xã hội với các chế độ khác, Hồ Chí Minh viết: “Trong xã hội có giai cấp bóc lột thống trị, chỉ có lợi ích cá nhân của một số rất ít ngƣời thuộc giai cấp thống trị là đƣợc thỏa mãn, còn lợi ích cá nhân của quần chúng lao động thì bị giày xéo. Trái lại, trong chế độ xã hội chủ nghĩa và cộng sản chủ nghĩa là chế độ do nhân dân lao động làm chủ, thì mỗi ngƣời là một bộ phận của tập thể, giữ một vị trí nhất định và đóng góp một phần công lao trong xã hội. Cho nên lợi ích cá nhân là nằm trong lợi ích của tập thể, là một bộ phận của lợi ích tập thể. Lợi ích chung của tập thể đƣợc bảo đảm thì lợi ích riêng của cá nhân mới có điều kiện đƣợc thỏa mãn”. Ngƣời khẳng định mục đích của ",
+      "excerpt": "Qua nghiên cứu môn học Tƣ tƣởng Hồ Chí Minh, ngƣời học có điều kiện vận dụng tốt hơn những kiến thức và kỹ năng đã nghiên cứu, học tập vào việc xây dựng phƣơng pháp học tập, tu dƣỡng, rèn luyện phù hợp với điều kiện cụ thể của bản thân. Ngƣ"
+    },
+    {
+      "id": 4,
+      "sourceId": "source-subject-tthcm-evaluation",
+      "documentId": "source-subject-tthcm-evaluation",
+      "chunkId": "chunk-subject-tthcm-evaluation-3",
+      "chunkIds": [
+        "chunk-subject-tthcm-evaluation-3",
+        "chunk-subject-tthcm-evaluation-184"
+      ],
+      "filename": "TÀI LIỆU HỌC TẬP HP TƯ TƯỞNG HỒ CHÍ MINH.docx",
+      "page": null,
+      "pageStart": null,
+      "pageEnd": null,
+      "section": "Chunks 15-16",
+      "sectionTitle": "",
+      "quote": "Ba là, đã nêu lên ý nghĩa của tƣ tƣởng Hồ Chí Minh, khẳng định tƣ tƣởng Hồ Chí Minh là tài sản tinh thần vô cùng to lớn và quý giá của Đảng và dân tộc ta, mãi mãi soi đƣờng cho sự nghiệp cách mạng của nhân dân ta. Cùng với chủ nghĩa Mác – Lênin, tƣ tƣởng Hồ Chí Minh là một bộ phận cấu thành làm nên nền tảng tƣ tƣởng và kim chỉ nam cho hành động của Đảng và cách mạng Việt Nam.\n\nKhái niệm trên đây là sự ghi nhận quá trình nhận thức của Đảng Cộng sản Việt Nam về tƣ tƣởng Hồ Chí Minh. Cụ thể:\n\nNgay từ khi ra đời, Đảng Cộng sản Việt Nam đã thông qua các văn kiện hợp thành Cƣơng lĩnh chính trị đầu tiên của Đảng. Cƣơng lĩnh này thể hiện những nội dung rất cơ bản của tƣ tƣởng Hồ Chí Minh về cách mạng Việt Nam.\n\nHồ Chí Minh có bốn cách tiếp cận chủ yếu về văn hóa: 1) Tiếp cận theo nghĩa rộng, tổng hợp mọi phƣơng thức sinh hoạt của con ngƣời; 2) Tiếp cận theo nghĩa hẹp là đời sống tinh thần của xã hội, thuộc kiến trúc thƣợng tầng; 3) Tiếp cận theo nghĩa hẹp hơn là bàn đến các trƣờng học, số ngƣời đi học, xóa\n\nnạn mù chữ, biết đọc, biết viết (thƣờng xuất hiện trong các bài nói với đồng bào miền núi); 4) Tiếp cận theo “phƣơng thức sử dụng công cụ sinh hoạt”.\n\nTháng 8/1943, khi còn ở trong nhà tù của Tƣởng Giới Thạch, Hồ Chí Minh đã đƣa ra quan niệm nhấn mạnh ý nghĩa của văn hóa. Ngƣời viết: “Vì lẽ sinh tồn cũng nhƣ mục đích của cuộc sống, loài ngƣời mới sáng tạo và phát minh ra ngôn ngữ, chữ viết, đạo đức, phát luật, khoa họ, tôn giáo, văn học, nghệ thuật, những công cụ cho sinh hoạt hàng ngày về mặc, ăn, ở và các phƣơng thức sử dụng. Toàn bộ những sáng tạo và phát minh đó tức là văn hóa. Văn hóa là sự tổng hợp của mọi phƣơng thức sinh hoạt cùng với biểu hiện của nó mà loài ngƣời đã sản sinh ra nhằm thích ứng những nhu cầu đời sống và đòi hỏi của sự sinh tồn”.\n\nQuan niệm văn hóa nêu trên của Hồ Chí Minh xuất hiện trong một bối cảnh thời gian và không gian đặc biệt, khi UNESCO chƣ",
+      "passage": "Ba là, đã nêu lên ý nghĩa của tƣ tƣởng Hồ Chí Minh, khẳng định tƣ tƣởng Hồ Chí Minh là tài sản tinh thần vô cùng to lớn và quý giá của Đảng và dân tộc ta, mãi mãi soi đƣờng cho sự nghiệp cách mạng của nhân dân ta. Cùng với chủ nghĩa Mác – Lênin, tƣ tƣởng Hồ Chí Minh là một bộ phận cấu thành làm nên nền tảng tƣ tƣởng và kim chỉ nam cho hành động của Đảng và cách mạng Việt Nam.\n\nKhái niệm trên đây là sự ghi nhận quá trình nhận thức của Đảng Cộng sản Việt Nam về tƣ tƣởng Hồ Chí Minh. Cụ thể:\n\nNgay từ khi ra đời, Đảng Cộng sản Việt Nam đã thông qua các văn kiện hợp thành Cƣơng lĩnh chính trị đầu tiên của Đảng. Cƣơng lĩnh này thể hiện những nội dung rất cơ bản của tƣ tƣởng Hồ Chí Minh về cách mạng Việt Nam.\n\nHồ Chí Minh có bốn cách tiếp cận chủ yếu về văn hóa: 1) Tiếp cận theo nghĩa rộng, tổng hợp mọi phƣơng thức sinh hoạt của con ngƣời; 2) Tiếp cận theo nghĩa hẹp là đời sống tinh thần của xã hội, thuộc kiến trúc thƣợng tầng; 3) Tiếp cận theo nghĩa hẹp hơn là bàn đến các trƣờng học, số ngƣời đi học, xóa\n\nnạn mù chữ, biết đọc, biết viết (thƣờng xuất hiện trong các bài nói với đồng bào miền núi); 4) Tiếp cận theo “phƣơng thức sử dụng công cụ sinh hoạt”.\n\nTháng 8/1943, khi còn ở trong nhà tù của Tƣởng Giới Thạch, Hồ Chí Minh đã đƣa ra quan niệm nhấn mạnh ý nghĩa của văn hóa. Ngƣời viết: “Vì lẽ sinh tồn cũng nhƣ mục đích của cuộc sống, loài ngƣời mới sáng tạo và phát minh ra ngôn ngữ, chữ viết, đạo đức, phát luật, khoa họ, tôn giáo, văn học, nghệ thuật, những công cụ cho sinh hoạt hàng ngày về mặc, ăn, ở và các phƣơng thức sử dụng. Toàn bộ những sáng tạo và phát minh đó tức là văn hóa. Văn hóa là sự tổng hợp của mọi phƣơng thức sinh hoạt cùng với biểu hiện của nó mà loài ngƣời đã sản sinh ra nhằm thích ứng những nhu cầu đời sống và đòi hỏi của sự sinh tồn”.\n\nQuan niệm văn hóa nêu trên của Hồ Chí Minh xuất hiện trong một bối cảnh thời gian và không gian đặc biệt, khi UNESCO chƣ",
+      "excerpt": "Ba là, đã nêu lên ý nghĩa của tƣ tƣởng Hồ Chí Minh, khẳng định tƣ tƣởng Hồ Chí Minh là tài sản tinh thần vô cùng to lớn và quý giá của Đảng và dân tộc ta, mãi mãi soi đƣờng cho sự nghiệp cách mạng của nhân dân ta. Cùng với chủ nghĩa Mác – L"
+    },
+    {
+      "id": 5,
+      "sourceId": "source-subject-tthcm-evaluation",
+      "documentId": "source-subject-tthcm-evaluation",
+      "chunkId": "chunk-subject-tthcm-evaluation-200",
+      "chunkIds": [
+        "chunk-subject-tthcm-evaluation-200",
+        "chunk-subject-tthcm-evaluation-20"
+      ],
+      "filename": "TÀI LIỆU HỌC TẬP HP TƯ TƯỞNG HỒ CHÍ MINH.docx",
+      "page": null,
+      "pageStart": null,
+      "pageEnd": null,
+      "section": "Chunks 114-115",
+      "sectionTitle": "",
+      "quote": "Cần, kiệm, liêm, chính, chí công vô tư\n\nCần, kiệm, liêm, chính, chí công vô tƣ là nội dung cốt lõi của đạo đức cách mạng, đó là phẩm chất đạo đức gắn liền với hoạt động hàng ngày của mỗi ngƣời. Vì vậy, Hồ Chí Minh đã đề cập phẩm chất này nhiều nhất, thƣờng xuyên nhất, phản ánh ngay từ cuốn sách Đường cách mệnh đến bản Di chúc.\n\nHồ Chí Minh chỉ rõ: “Bọn phong kiến ngày xƣa nêu ra cần, kiệm, liêm, chính nhƣng không bao giờ làm mà lại bắt nhân dân phải tuân theo để phụng sự quyền lợi cho chúng. Ngày này ta đề ra cần, kiệm, liêm, chính cho cán bộ thực hiện làm gƣơng cho nhân dân theo để lợi cho nƣớc cho dân”. Với ý nghĩa nhƣ vậy, cần, kiệm, liêm, chính, chí công vô tƣ cũng là một biểu hiện cụ thể của phẩm chất “trung với nƣớc, hiếu với dân”.\n\n“Cần, kiệm, liêm, chính, chí công vô tƣ” cũng là một khái niệm cũ trong đạo đức truyền thống dân tộc, đƣợc Hồ Chí Minh lọc bỏ những nội dung không phù hợp và đƣa vào những nội dung mới đáp ứng yêu cầu của cách mạng.\n\n“Cần tức là siêng năng, chăm chỉ, cố gắng dẻo dai... Muốn cho chữ Cần có nhiều kết quả hơn, thì phải có kế hoạch cho mọi công việc”. Cần tức là lao động cần cù, siêng năng; lao động có kế hoạch, sáng tạo có năng suất cao; lao động với tinh thần tự lực cánh sinh, không lƣời biếng. Phải thấy rõ, “Lao động là nghĩa vụ thiêng liêng, là nguồn sống, nguồn hạnh phúc của chúng ta”.\n\nQua nghiên cứu môn học Tƣ tƣởng Hồ Chí Minh, ngƣời học có điều kiện vận dụng tốt hơn những kiến thức và kỹ năng đã nghiên cứu, học tập vào việc xây dựng phƣơng pháp học tập, tu dƣỡng, rèn luyện phù hợp với điều kiện cụ thể của bản thân. Ngƣời học có thể vận dụng xây dựng phong cách tƣ duy, phong cách diễn đạt, phong cách làm việc, phong cách ứng xử, phong cách sinh hoạt,… phù hợp hoàn cảnh nhƣ phƣơng châm của Hồ Chí Minh: Dĩ bất biến ứng vạn biến.\n\nTƣ tƣởng Hồ Chí Minh góp phần tích cực trong việc giáo dục thế hệ trẻ tiếp tục hình thành và hoàn thiện",
+      "passage": "Cần, kiệm, liêm, chính, chí công vô tư\n\nCần, kiệm, liêm, chính, chí công vô tƣ là nội dung cốt lõi của đạo đức cách mạng, đó là phẩm chất đạo đức gắn liền với hoạt động hàng ngày của mỗi ngƣời. Vì vậy, Hồ Chí Minh đã đề cập phẩm chất này nhiều nhất, thƣờng xuyên nhất, phản ánh ngay từ cuốn sách Đường cách mệnh đến bản Di chúc.\n\nHồ Chí Minh chỉ rõ: “Bọn phong kiến ngày xƣa nêu ra cần, kiệm, liêm, chính nhƣng không bao giờ làm mà lại bắt nhân dân phải tuân theo để phụng sự quyền lợi cho chúng. Ngày này ta đề ra cần, kiệm, liêm, chính cho cán bộ thực hiện làm gƣơng cho nhân dân theo để lợi cho nƣớc cho dân”. Với ý nghĩa nhƣ vậy, cần, kiệm, liêm, chính, chí công vô tƣ cũng là một biểu hiện cụ thể của phẩm chất “trung với nƣớc, hiếu với dân”.\n\n“Cần, kiệm, liêm, chính, chí công vô tƣ” cũng là một khái niệm cũ trong đạo đức truyền thống dân tộc, đƣợc Hồ Chí Minh lọc bỏ những nội dung không phù hợp và đƣa vào những nội dung mới đáp ứng yêu cầu của cách mạng.\n\n“Cần tức là siêng năng, chăm chỉ, cố gắng dẻo dai... Muốn cho chữ Cần có nhiều kết quả hơn, thì phải có kế hoạch cho mọi công việc”. Cần tức là lao động cần cù, siêng năng; lao động có kế hoạch, sáng tạo có năng suất cao; lao động với tinh thần tự lực cánh sinh, không lƣời biếng. Phải thấy rõ, “Lao động là nghĩa vụ thiêng liêng, là nguồn sống, nguồn hạnh phúc của chúng ta”.\n\nQua nghiên cứu môn học Tƣ tƣởng Hồ Chí Minh, ngƣời học có điều kiện vận dụng tốt hơn những kiến thức và kỹ năng đã nghiên cứu, học tập vào việc xây dựng phƣơng pháp học tập, tu dƣỡng, rèn luyện phù hợp với điều kiện cụ thể của bản thân. Ngƣời học có thể vận dụng xây dựng phong cách tƣ duy, phong cách diễn đạt, phong cách làm việc, phong cách ứng xử, phong cách sinh hoạt,… phù hợp hoàn cảnh nhƣ phƣơng châm của Hồ Chí Minh: Dĩ bất biến ứng vạn biến.\n\nTƣ tƣởng Hồ Chí Minh góp phần tích cực trong việc giáo dục thế hệ trẻ tiếp tục hình thành và hoàn thiện",
+      "excerpt": "Cần, kiệm, liêm, chính, chí công vô tư Cần, kiệm, liêm, chính, chí công vô tƣ là nội dung cốt lõi của đạo đức cách mạng, đó là phẩm chất đạo đức gắn liền với hoạt động hàng ngày của mỗi ngƣời. Vì vậy, Hồ Chí Minh đã đề cập phẩm chất này nhi"
+    }
+  ],
+  "debug": {
+    "mode": "hybrid",
+    "lexicalCount": 5,
+    "vectorCount": 5,
+    "fusedCount": 5
+  },
+  "judgeReasons": {
+    "faithfulness": "Câu trả lời phản ánh đúng định nghĩa và các nội dung của tư tưởng Hồ Chí Minh được nêu trong ngữ cảnh, không bổ sung thông tin ngoài phạm vi cung cấp.",
+    "answer_relevance": "Độ liên quan được tính bằng mức giống nhau giữa câu hỏi gốc và câu hỏi suy ra từ câu trả lời.",
+    "retrieval_recall_at_5": "Ngữ cảnh chứa định nghĩa đầy đủ của tư tưởng Hồ Chí Minh, trùng khớp với đáp án chuẩn."
+  }
+}

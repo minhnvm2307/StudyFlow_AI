@@ -1,0 +1,142 @@
+{
+  "generatedAt": "2026-07-07T20:57:12.054116+00:00",
+  "prefix": "synthetic-eval",
+  "historyDays": 28,
+  "counts": {
+    "users": 6,
+    "courses": 12,
+    "topics": 48,
+    "sources": 12,
+    "chunks": 48,
+    "tasks": 123,
+    "mastery_events": 4380,
+    "review_logs": 122,
+    "quizzes": 12,
+    "flashcards": 24,
+    "chat_threads": 12
+  },
+  "offlineMetrics": {
+    "rmse": 0.4863,
+    "brier": 0.2365,
+    "auc": 0.6922,
+    "avgPredicted": 0.4795,
+    "avgActual": 0.6466,
+    "calibrationGap": 0.1671
+  },
+  "schedulerMetrics": {
+    "totalCourses": 12,
+    "coverageWarningCount": 0,
+    "overBudgetWarningCount": 0,
+    "overBudgetWarningRate": 0.0
+  },
+  "avgProfileMetrics": {
+    "knowledgeConsistency": 85.5,
+    "retentionReliability": 33.33,
+    "personalCalibrationScore": 91,
+    "calibrationGap": 9,
+    "engagementConfidence": 23.67
+  },
+  "sourceBreakdown": [
+    {
+      "sourceType": "entry_diagnostic_quiz",
+      "count": 1800,
+      "rmse": 0.509,
+      "avgPredicted": 0.4254,
+      "avgActual": 0.625
+    },
+    {
+      "sourceType": "system_quiz",
+      "count": 1020,
+      "rmse": 0.4701,
+      "avgPredicted": 0.5357,
+      "avgActual": 0.6657
+    },
+    {
+      "sourceType": "workspace_quiz",
+      "count": 1560,
+      "rmse": 0.4698,
+      "avgPredicted": 0.5053,
+      "avgActual": 0.659
+    }
+  ],
+  "users": [
+    {
+      "username": "synthetic-eval-steady-01",
+      "email": "synthetic-eval-steady-01@synthetic.studyflow.local",
+      "password": "synthetic-2026",
+      "persona": "Steady Achiever",
+      "courseCount": 2,
+      "readiness": 62,
+      "eventCount": 858,
+      "knowledgeConsistency": 81,
+      "personalCalibrationScore": 81,
+      "retentionReliability": 100,
+      "engagementConfidence": 27
+    },
+    {
+      "username": "synthetic-eval-sprint-02",
+      "email": "synthetic-eval-sprint-02@synthetic.studyflow.local",
+      "password": "synthetic-2026",
+      "persona": "Last-Minute Sprinter",
+      "courseCount": 2,
+      "readiness": 50,
+      "eventCount": 858,
+      "knowledgeConsistency": 88,
+      "personalCalibrationScore": 94,
+      "retentionReliability": 0,
+      "engagementConfidence": 22
+    },
+    {
+      "username": "synthetic-eval-overloaded-03",
+      "email": "synthetic-eval-overloaded-03@synthetic.studyflow.local",
+      "password": "synthetic-2026",
+      "persona": "Overloaded Struggler",
+      "courseCount": 2,
+      "readiness": 28.5,
+      "eventCount": 693,
+      "knowledgeConsistency": 91,
+      "personalCalibrationScore": 99,
+      "retentionReliability": 0,
+      "engagementConfidence": 22
+    },
+    {
+      "username": "synthetic-eval-steady-04",
+      "email": "synthetic-eval-steady-04@synthetic.studyflow.local",
+      "password": "synthetic-2026",
+      "persona": "Steady Achiever",
+      "courseCount": 2,
+      "readiness": 66,
+      "eventCount": 702,
+      "knowledgeConsistency": 79,
+      "personalCalibrationScore": 79,
+      "retentionReliability": 100,
+      "engagementConfidence": 27
+    },
+    {
+      "username": "synthetic-eval-sprint-05",
+      "email": "synthetic-eval-sprint-05@synthetic.studyflow.local",
+      "password": "synthetic-2026",
+      "persona": "Last-Minute Sprinter",
+      "courseCount": 2,
+      "readiness": 50.5,
+      "eventCount": 702,
+      "knowledgeConsistency": 86,
+      "personalCalibrationScore": 97,
+      "retentionReliability": 0,
+      "engagementConfidence": 22
+    },
+    {
+      "username": "synthetic-eval-overloaded-06",
+      "email": "synthetic-eval-overloaded-06@synthetic.studyflow.local",
+      "password": "synthetic-2026",
+      "persona": "Overloaded Struggler",
+      "courseCount": 2,
+      "readiness": 27,
+      "eventCount": 567,
+      "knowledgeConsistency": 88,
+      "personalCalibrationScore": 96,
+      "retentionReliability": 0,
+      "engagementConfidence": 22
+    }
+  ]
+}

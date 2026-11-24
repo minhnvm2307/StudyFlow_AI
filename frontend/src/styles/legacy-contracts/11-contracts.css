@@ -1,0 +1,228 @@
+
+.practice-head span {
+  color: var(--text-secondary);
+}
+
+.quiz-question-list {
+  display: grid;
+  max-height: min(62vh, 620px);
+  overflow-y: auto;
+  gap: 14px;
+  padding-right: 4px;
+}
+
+.quiz-question {
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--surface-line);
+  border-radius: 10px;
+  background: #fff;
+  padding: 14px;
+}
+
+.quiz-question h3 {
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 8px;
+}
+
+.quiz-options label {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 9px;
+  align-items: start;
+  border: 1px solid var(--surface-line);
+  border-radius: 9px;
+  background: #fff;
+  padding: 10px;
+  color: #344054;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.quiz-options label.selected {
+  border-color: #84cc16;
+  background: #f7fee7;
+  font-weight: 600;
+  box-shadow: 0 0 0 1px #84cc16;
+}
+
+.quiz-options label.selected input[type="radio"] {
+  accent-color: #84cc16;
+}
+
+.quiz-question.is-correct {
+  border-color: #8bd45d;
+}
+
+.quiz-question.is-wrong {
+  border-color: #fda4af;
+}
+
+.quiz-explanation {
+  display: grid;
+  gap: 8px;
+  border-radius: 9px;
+  background: #f8faf7;
+  padding: 10px;
+  color: #344054;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.quiz-explain-btn {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #d8dee5;
+  border-radius: 999px;
+  background: #fff;
+  padding: 7px 10px;
+  color: #344054;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.quiz-explain-btn:hover:not(:disabled) {
+  border-color: #9adf63;
+  background: #f3faed;
+  color: var(--brand-green-dark);
+}
+
+.quiz-explain-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+.flashcard-review-card {
+  display: grid;
+  width: 100%;
+  min-height: 220px;
+  align-content: center;
+  gap: 12px;
+  border: 1px solid #d8e8cf;
+  border-radius: 12px;
+  background: #f7fff0;
+  padding: 24px;
+  color: var(--brand-green-dark);
+  text-align: center;
+}
+
+.flashcard-review-card span,
+.flashcard-review-card small {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.flashcard-review-card strong {
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.flashcard-review-card.is-revealed {
+  background: #fffaf0;
+  border-color: #f6d58d;
+  color: #7c4a03;
+}
+
+.flashcard-rating {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.practice-source {
+  display: flex;
+  justify-content: center;
+}
+
+.quiz-sidebar-panel {
+  gap: 14px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbf5 100%);
+  overflow-y: auto !important;
+}
+
+.quiz-sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.quiz-back-btn,
+.quiz-next-btn {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--surface-line);
+  border-radius: 999px;
+  background: #fff;
+  padding: 8px 10px;
+  color: #344054;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.quiz-next-btn {
+  border-color: #bfe8a2;
+  background: #effbe7;
+  color: var(--brand-green-dark);
+}
+
+.quiz-hero {
+  display: grid;
+  gap: 10px;
+  border: 1px solid #d8e8cf;
+  border-radius: 12px;
+  background: #fff;
+  padding: 14px;
+}
+
+.quiz-hero > span,
+.quiz-focus-index {
+  color: var(--brand-green-strong);
+  font-size: 11px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.quiz-hero h2 {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.quiz-progress-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #344054;
+  font-size: 13px;
+}
+
+.quiz-progress-line small {
+  color: var(--text-secondary);
+  font-weight: 750;
+}
+
+.quiz-progress-track {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e8eee4;
+}
+
+.quiz-progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #78d20c;
+  transition: width 0.18s ease;
+}

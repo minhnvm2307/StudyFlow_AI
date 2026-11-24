@@ -1,0 +1,75 @@
+{
+  "suite": "Mastery weekly evaluation",
+  "pillar": "mastery",
+  "profile": "weekly",
+  "status": "passed",
+  "passed": 1,
+  "failed": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "name": "synthetic-cohort",
+      "status": "passed",
+      "metrics": {
+        "rmse": 0.4863,
+        "brier": 0.2365,
+        "calibration_gap": 0.1671,
+        "auc": 0.6922
+      }
+    }
+  ],
+  "metrics": {
+    "rmse": 0.4863,
+    "brier": 0.2365,
+    "calibration_gap": 0.1671,
+    "auc": 0.6922
+  },
+  "thresholds": [
+    {
+      "metric": "RMSE",
+      "status": "passed",
+      "value": 0.4863,
+      "target": 0.5,
+      "operator": "lt",
+      "tolerance": 0.02,
+      "metricKey": "rmse"
+    },
+    {
+      "metric": "Brier score",
+      "status": "passed",
+      "value": 0.2365,
+      "target": 0.25,
+      "operator": "lt",
+      "tolerance": 0.02,
+      "metricKey": "brier"
+    },
+    {
+      "metric": "Calibration gap",
+      "status": "passed",
+      "value": 0.1671,
+      "target": 0.18,
+      "operator": "lt",
+      "tolerance": 0.02,
+      "metricKey": "calibration_gap"
+    },
+    {
+      "metric": "AUC",
+      "status": "passed",
+      "value": 0.6922,
+      "target": 0.65,
+      "operator": "gt",
+      "tolerance": 0.02,
+      "metricKey": "auc"
+    }
+  ],
+  "artifact_paths": {
+    "log": "artifacts\\eval\\logs\\synthetic-cohort-evaluation.log",
+    "runDir": "artifacts\\eval\\weekly\\20260707T205705Z",
+    "cohortJson": "artifacts\\eval\\weekly\\20260707T205705Z\\synthetic_cohort.json",
+    "cohortMarkdown": "artifacts\\eval\\weekly\\20260707T205705Z\\synthetic_cohort.md"
+  },
+  "notes": [],
+  "description": "Synthetic cohort regression for mastery calibration metrics.",
+  "command": "C:\\Python313\\python.exe scripts/seed_synthetic_eval.py --reset --prefix synthetic-eval --users 6 --history-days 28 --output-dir C:\\Users\\Admin\\Desktop\\VinUNI\\vin2\\C2-App-132\\artifacts\\eval\\weekly\\20260707T205705Z",
+  "return_code": 0
+}

@@ -1,0 +1,230 @@
+
+.icon-btn:hover,
+.icon-btn.active {
+  background: var(--surface-muted);
+  color: var(--brand-green-strong);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 24px;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  background: var(--surface-muted);
+}
+
+.badge-green {
+  color: var(--brand-green-dark);
+  background: #dff8c5;
+}
+
+.badge-blue {
+  color: #1d4ed8;
+  background: var(--blue-soft);
+}
+
+.badge-amber {
+  color: #92400e;
+  background: var(--amber-soft);
+}
+
+.badge-violet {
+  color: #6d28d9;
+  background: var(--violet-soft);
+}
+
+.badge-neutral {
+  color: #556070;
+  background: #eef0f3;
+}
+
+.progress {
+  position: relative;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e6e9ea;
+}
+
+.progress-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--brand-green);
+}
+
+.progress-fill.tone-green {
+  background: #78d20c;
+}
+
+.progress-fill.tone-blue {
+  background: var(--blue);
+}
+
+.progress-fill.tone-amber {
+  background: var(--amber);
+}
+
+.progress-fill.tone-violet,
+.progress-fill.tone-purple {
+  background: var(--violet);
+}
+
+.progress-fill.tone-rose,
+.progress-fill.tone-pink {
+  background: var(--rose);
+}
+
+.progress-fill.tone-gray {
+  background: #98a2b3;
+}
+
+.progress-ring {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  padding: 9px;
+  background: conic-gradient(#78d20c var(--ring-angle), #e5e7eb 0deg);
+}
+
+.progress-ring-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.progress-ring strong {
+  font-size: 19px;
+}
+
+.progress-ring span {
+  color: var(--text-secondary);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #78d20c;
+  color: #244000;
+  font-weight: 800;
+}
+
+.avatar-md {
+  width: 34px;
+  height: 34px;
+  font-size: 13px;
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  min-width: 220px;
+  border: 1px solid var(--surface-line);
+  border-radius: 999px;
+  background: #fff;
+  padding: 0 12px;
+  color: #667085;
+}
+
+.search-field input {
+  min-width: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+.search-field input:focus {
+  box-shadow: none;
+}
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  min-width: 1024px;
+  height: var(--nav-height);
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(207, 216, 202, 0.72);
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
+  padding: 0 32px;
+  backdrop-filter: blur(18px);
+}
+
+.top-nav-left,
+.top-nav-actions,
+.nav-links,
+.simple-actions {
+  display: flex;
+  align-items: center;
+}
+
+.top-nav-left {
+  gap: 34px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  background: transparent;
+  color: var(--brand-green-dark);
+  font-size: 24px;
+  font-weight: 850;
+  transition: transform 0.2s ease;
+}
+
+.brand-mark {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: linear-gradient(135deg, rgba(126, 217, 87, 0.24), rgba(236, 248, 232, 0.9));
+  color: var(--brand-green-strong);
+  box-shadow: 0 10px 22px rgba(126, 217, 87, 0.14);
+}
+
+.nav-links {
+  gap: 10px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0 12px;
+  color: #4b5563;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}

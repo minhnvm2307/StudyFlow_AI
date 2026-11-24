@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudyFlow AI - Flashcard Practice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#416900",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary-fixed": "#102000",
+                        "on-background": "#191c1d",
+                        "primary-fixed": "#acf847",
+                        "border-subtle": "#e5e7eb",
+                        "surface": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d9dadb",
+                        "background": "#F6FAF2", // Overridden as per prompt
+                        "primary-container": "#84cc16",
+                        "on-surface-variant": "#424936",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-fixed-variant": "#005226",
+                        "secondary-fixed-dim": "#8bd79b",
+                        "secondary-fixed": "#a6f4b5",
+                        "outline": "#727a64",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-container": "#315200",
+                        "tertiary-fixed-dim": "#eec200",
+                        "tertiary-fixed": "#ffe083",
+                        "tertiary-container": "#deb400",
+                        "tertiary": "#735c00",
+                        "on-surface": "#191c1d",
+                        "secondary-container": "#a4f1b2",
+                        "on-error-container": "#93000a",
+                        "card-background": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fa",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "on-secondary-container": "#24703e",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1cab0",
+                        "on-secondary-fixed": "#00210b",
+                        "text-secondary": "#6b7280",
+                        "on-primary-fixed-variant": "#304f00",
+                        "secondary": "#1f6c3a",
+                        "primary": "#416900",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-container": "#594700",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "text-primary": "#111827",
+                        "inverse-primary": "#91db2a",
+                        "primary-fixed-dim": "#91db2a",
+                        "error-red": "#ef4444",
+                        "on-tertiary-fixed": "#231b00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "2rem",
+                        "stack-gap": "1rem",
+                        "gutter": "1.5rem",
+                        "base": "0.25rem",
+                        "card-padding": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "title-sm": ["Inter"],
+                        "headline-md-mobile": ["Inter"],
+                        "body-base": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "metadata": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["1.5rem", {"lineHeight": "2rem", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["0.875rem", {"lineHeight": "1.25rem", "fontWeight": "400"}],
+                        "label-caps": ["0.75rem", {"lineHeight": "1rem", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "title-sm": ["1.125rem", {"lineHeight": "1.5rem", "fontWeight": "600"}],
+                        "headline-md-mobile": ["1.25rem", {"lineHeight": "1.75rem", "fontWeight": "600"}],
+                        "body-base": ["1rem", {"lineHeight": "1.5rem", "fontWeight": "400"}],
+                        "display-lg": ["2.25rem", {"lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "metadata": ["0.75rem", {"lineHeight": "1rem", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-size: 16px; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface h-screen w-screen flex flex-col overflow-hidden antialiased">
+<!-- Top Bar -->
+<header class="bg-surface-container-lowest border-b border-border-subtle flex-shrink-0 relative z-10 shadow-[0px_2px_4px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between px-gutter py-4 h-16">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors font-body-sm">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+<span>Thoát flashcard</span>
+</button>
+<div class="h-6 w-px bg-border-subtle"></div>
+<h1 class="font-title-sm text-text-primary">Đại số tuyến tính</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 text-text-secondary font-body-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy">content_copy</span>
+<span>12 / 32</span>
+</div>
+<div class="flex items-center gap-2 text-text-secondary font-body-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="timer">timer</span>
+<span>08:42</span>
+</div>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="h-1 w-full bg-surface-variant absolute bottom-0 left-0">
+<div class="h-full bg-primary-container" style="width: 37.5%;"></div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 flex overflow-hidden">
+<!-- Center Canvas -->
+<div class="flex-1 flex flex-col items-center pt-[51px] pb-8 px-8 overflow-y-auto">
+<!-- Flashcard -->
+<div class="w-full max-w-[48rem] bg-surface-container-lowest rounded-[20px] shadow-[0px_4px_24px_rgba(0,0,0,0.06)] border border-border-subtle p-12 flex flex-col min-h-[24rem] relative mb-8 group cursor-pointer transition-transform duration-300 hover:shadow-[0px_8px_32px_rgba(0,0,0,0.08)]">
+<div class="absolute top-6 left-6 text-text-secondary font-metadata uppercase tracking-wider text-[0.65rem]">
+                    Mặt sau (Đáp án)
+                </div>
+<div class="flex-1 flex flex-col justify-center items-center text-center gap-6">
+<h2 class="font-headline-md text-text-primary">
+                        Không gian vector là một tập hợp các vector thỏa mãn các quy tắc về cộng vector và nhân vô hướng.
+                    </h2>
+<div class="h-px w-16 bg-surface-variant my-2"></div>
+<p class="font-body-base text-text-secondary max-w-2xl leading-relaxed">
+                        Nói cách khác, nó là một cấu trúc đại số nơi bạn có thể lấy hai phần tử (vector) cộng lại với nhau, hoặc nhân một phần tử với một số thực (vô hướng) mà kết quả vẫn nằm trong tập hợp đó.
+                    </p>
+</div>
+<div class="absolute bottom-6 left-6 right-6 flex justify-center">
+<div class="inline-flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-md font-metadata text-text-secondary">
+<span class="material-symbols-outlined text-[14px]" data-icon="description">description</span>
+<span>Source: lecture_01_vector_space.pdf · trang 12</span>
+</div>
+</div>
+</div>
+<!-- Rating Actions -->
+<div class="w-full max-w-[48rem] flex justify-between gap-4 mb-10">
+<!-- Again -->
+<button class="flex-1 flex flex-col items-center justify-center py-4 px-2 rounded-xl border border-[#ffdad6] bg-[#fff8f6] hover:bg-[#ffedec] transition-colors group">
+<span class="font-title-sm text-[#93000a] mb-1 group-hover:scale-105 transition-transform">Again</span>
+<span class="font-metadata text-[#ba1a1a]">Ôn lại sớm</span>
+<span class="font-metadata text-[#93000a]/60 mt-1">&lt; 1 phút</span>
+</button>
+<!-- Hard -->
+<button class="flex-1 flex flex-col items-center justify-center py-4 px-2 rounded-xl border border-[#ffe083] bg-[#fffbf0] hover:bg-[#fff5d6] transition-colors group">
+<span class="font-title-sm text-[#574500] mb-1 group-hover:scale-105 transition-transform">Hard</span>
+<span class="font-metadata text-[#735c00]">Còn khó</span>
+<span class="font-metadata text-[#574500]/60 mt-1">~ 6 phút</span>
+</button>
+<!-- Good -->
+<button class="flex-1 flex flex-col items-center justify-center py-4 px-2 rounded-xl border border-[#a6f4b5] bg-[#f0fdf4] hover:bg-[#dcfce7] transition-colors group">
+<span class="font-title-sm text-[#005226] mb-1 group-hover:scale-105 transition-transform">Good</span>
+<span class="font-metadata text-[#1f6c3a]">Nhớ ổn</span>
+<span class="font-metadata text-[#005226]/60 mt-1">~ 10 phút</span>
+</button>
+<!-- Easy -->
+<button class="flex-1 flex flex-col items-center justify-center py-4 px-2 rounded-xl border-2 border-primary-container bg-primary-container/10 hover:bg-primary-container/20 transition-colors group relative overflow-hidden">
+<span class="font-title-sm text-primary mb-1 group-hover:scale-105 transition-transform">Easy</span>
+<span class="font-metadata text-primary">Quá dễ</span>
+<span class="font-metadata text-primary/70 mt-1">4 ngày</span>
+<!-- subtle highlight effect -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</button>
+</div>
+<!-- Secondary Actions -->
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-full border border-border-subtle bg-surface-container-lowest text-text-secondary font-body-sm hover:bg-surface-container-low hover:text-text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="psychology">psychology</span>
+<span>Hỏi AI giải thích</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-full border border-border-subtle bg-surface-container-lowest text-text-secondary font-body-sm hover:bg-surface-container-low hover:text-text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="quiz">quiz</span>
+<span>Tạo quiz tương tự</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-full border border-border-subtle bg-surface-container-lowest text-text-secondary font-body-sm hover:bg-error-container hover:text-error hover:border-error-container transition-colors ml-4">
+<span class="material-symbols-outlined text-[18px]" data-icon="stop_circle">stop_circle</span>
+<span>Kết thúc phiên</span>
+</button>
+</div>
+</div>
+<!-- Right Panel (Session Stats) -->
+<aside class="w-[20rem] bg-surface-container-lowest border-l border-border-subtle flex flex-col h-full flex-shrink-0">
+<div class="p-6 border-b border-border-subtle">
+<h3 class="font-title-sm text-text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="analytics">analytics</span>
+                    Phiên ôn hôm nay
+                </h3>
+</div>
+<div class="p-6 flex-1 overflow-y-auto">
+<div class="mb-8">
+<div class="flex justify-between items-end mb-2">
+<span class="font-body-sm text-text-secondary">Đã ôn</span>
+<span class="font-title-sm text-text-primary">12 / 32</span>
+</div>
+<!-- Mini progress -->
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 37.5%;"></div>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-caps text-text-secondary uppercase tracking-wider">Thống kê phản hồi</h4>
+<div class="space-y-3">
+<!-- Again stat -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-[#fff8f6] border border-[#ffdad6]/50">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-[#ba1a1a]"></div>
+<span class="font-body-sm text-text-primary">Again</span>
+</div>
+<span class="font-title-sm text-text-primary">3</span>
+</div>
+<!-- Hard stat -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-[#fffbf0] border border-[#ffe083]/50">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-[#deb400]"></div>
+<span class="font-body-sm text-text-primary">Hard</span>
+</div>
+<span class="font-title-sm text-text-primary">4</span>
+</div>
+<!-- Good stat -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-[#f0fdf4] border border-[#a6f4b5]/50">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-[#1f6c3a]"></div>
+<span class="font-body-sm text-text-primary">Good</span>
+</div>
+<span class="font-title-sm text-text-primary">4</span>
+</div>
+<!-- Easy stat -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-primary-container/10 border border-primary-container/30">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="font-body-sm text-text-primary">Easy</span>
+</div>
+<span class="font-title-sm text-text-primary">1</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 border-t border-border-subtle bg-surface-bright">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary-container mt-0.5" data-icon="tips_and_updates">tips_and_updates</span>
+<div>
+<span class="font-label-caps text-text-secondary block mb-1">Mẹo học tập</span>
+<p class="font-metadata text-text-primary leading-tight">Bạn đang nhớ rất tốt các khái niệm cơ bản. Hãy thử tạo quiz để kiểm tra sâu hơn nhé.</p>
+</div>
+</div>
+</div>
+</aside>
+</main>
+</body></html>
