@@ -299,6 +299,13 @@ Invoke-RestMethod -Uri "$base/api/flashcards/generate" `
   -Body (@{ courseId=$course.id; selectedSourceIds=@($source.id); query="chloroplast"; count=2 } | ConvertTo-Json)
 ```
 
+## Authentication & User Session Flow
+
+1. **Register (`POST /api/auth/register`)**: Validates `email`, `username`, and `password`, hashes the password with PBKDF2-SHA256, stores the user profile in PostgreSQL (`users`), and returns `{ user, accessToken, tokenType, expiresIn }`.
+2. **Login (`POST /api/auth/login`)**: Accepts `identifier` (username or email) + `password`, verifies the hash, and returns the same Bearer JWT session payload.
+3. **Client Session Persistence (`frontend/src/services/authSession.js`)**: Stores `{ user, accessToken, expiresAt }` in `localStorage` (`studyflow.currentUser`), automatically clears expired/invalid sessions, and broadcasts `studyflow-auth-changed` events across the UI.
+4. **Profile & Onboarding (`POST /api/onboarding`)**: Persists user study preferences (`goalMode`, `dailyGoalMinutes`, `studyDays`, `mascotTone`) to PostgreSQL using the authenticated Bearer token.
+
 ## Tests
 
 Run backend checks:

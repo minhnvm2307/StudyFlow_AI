@@ -433,6 +433,44 @@
   color: #9ca3af;
 }
 
+.login-password-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login-password-wrap input {
+  width: 100%;
+  padding-right: 44px;
+}
+
+.login-password-toggle {
+  position: absolute;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  background: transparent;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.login-password-toggle:hover {
+  color: #1f2937;
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.login-field-hint {
+  color: #6b7280;
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
 .login-demo-button {
   display: inline-flex;
   width: 100%;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, CheckCircle2, LogIn, Sparkles, UserPlus } from "lucide-react";
+import { ArrowRight, CheckCircle2, Eye, EyeOff, LogIn, Sparkles, UserPlus } from "lucide-react";
 import { Button, SegmentedControl } from "../../components/shared/common.jsx";
 import { navigate } from "../../router.jsx";
 import { saveCurrentSession } from "../../services/authSession.js";
@@ -17,6 +17,7 @@ const LOGIN_POINTS = [
 export default function LoginPage() {
   const [mode, setMode] = useState("Login");
   const [form, setForm] = useState({ email: "", username: "", identifier: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const reduceMotion = useReducedMotion();
@@ -152,23 +153,47 @@ export default function LoginPage() {
                 <>
                   <label>
                     <span>Email</span>
-                    <input type="email" value={form.email} onChange={update("email")} autoComplete="email" placeholder="ban@vinuni.edu.vn" required />
+                    <input type="email" value={form.email} onChange={update("email")} autoComplete="email" placeholder="student@example.edu.vn" required />
                   </label>
                   <label>
                     <span>Username</span>
-                    <input value={form.username} onChange={update("username")} autoComplete="username" minLength={3} pattern="[A-Za-z0-9_\.\-]{3,}" placeholder="username A" required />
+                    <input value={form.username} onChange={update("username")} autoComplete="username" minLength={3} pattern="[A-Za-z0-9_\.\-]{3,}" placeholder="nguyenvana" required />
                   </label>
                 </>
               ) : (
                 <label>
                   <span>Username or email</span>
-                  <input value={form.identifier} onChange={update("identifier")} autoComplete="username" placeholder="username A or uet@vnu.edu.vn" required />
+                  <input value={form.identifier} onChange={update("identifier")} autoComplete="username" placeholder="nguyenvana hoặc student@example.edu.vn" required />
                 </label>
               )}
 
               <label>
                 <span>Password</span>
-                <input type="password" value={form.password} onChange={update("password")} autoComplete={isRegister ? "new-password" : "current-password"} minLength={3} pattern="[A-Za-z0-9_\.\-]{3,}" placeholder={isRegister ? "Tạo mật khẩu" : "Nhập mật khẩu"} required />
+                <div className="login-password-wrap">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    value={form.password}
+                    onChange={update("password")}
+                    autoComplete={isRegister ? "new-password" : "current-password"}
+                    minLength={3}
+                    pattern="[A-Za-z0-9_\.\-]{3,}"
+                    placeholder={isRegister ? "Tạo mật khẩu" : "Nhập mật khẩu"}
+                    required
+                  />
+                  <button
+                    type="button"
+                    className="login-password-toggle"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    aria-label={showPassword ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
+                  >
+                    {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                  </button>
+                </div>
+                {isRegister ? (
+                  <small className="login-field-hint">
+                    Tối thiểu 3 ký tự (chữ, số, _, ., -). Thông tin sẽ được lưu vào hồ sơ học tập của bạn.
+                  </small>
+                ) : null}
               </label>
             </motion.div>
           </AnimatePresence>
