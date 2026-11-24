@@ -1,0 +1,59 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: studyflow-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-studyflow}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-studyflow}
+      POSTGRES_DB: ${POSTGRES_DB:-studyflow}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-studyflow} -d ${POSTGRES_DB:-studyflow}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - studyflow-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: studyflow-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - path: .env
+        required: true
+      - path: ../.env
+        required: false
+    environment:
+      HOST: 0.0.0.0
+      PORT: 4000
+      APP_ENV: ${APP_ENV:-development}
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-studyflow}:${POSTGRES_PASSWORD:-studyflow}@postgres:5432/${POSTGRES_DB:-studyflow}
+    ports:
+      - "${PORT:-4000}:4000"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    command: >
+      sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 4000"
+    networks:
+      - studyflow-network
+
+networks:
+  studyflow-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local

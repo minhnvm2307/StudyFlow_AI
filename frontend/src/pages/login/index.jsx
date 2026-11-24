@@ -156,13 +156,13 @@ export default function LoginPage() {
                   </label>
                   <label>
                     <span>Username</span>
-                    <input value={form.username} onChange={update("username")} autoComplete="username" minLength={3} pattern="[A-Za-z0-9_\.\-]{3,}" placeholder="duong.study" required />
+                    <input value={form.username} onChange={update("username")} autoComplete="username" minLength={3} pattern="[A-Za-z0-9_\.\-]{3,}" placeholder="username A" required />
                   </label>
                 </>
               ) : (
                 <label>
                   <span>Username or email</span>
-                  <input value={form.identifier} onChange={update("identifier")} autoComplete="username" placeholder="duong.study hoặc ban@vinuni.edu.vn" required />
+                  <input value={form.identifier} onChange={update("identifier")} autoComplete="username" placeholder="username A or uet@vnu.edu.vn" required />
                 </label>
               )}
 
