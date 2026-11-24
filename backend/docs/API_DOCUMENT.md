@@ -11,7 +11,7 @@ All JSON request and response payloads use **camelCase** keys. Responses wrap ou
 
 | Component | Protocol | Description |
 |---|---|---|
-| **Authentication & Isolation** | Query Param | Append `?user_id={user_id}` (e.g. `user-demo`) to routes. |
+| **Authentication & Isolation** | Bearer JWT | Send `Authorization: Bearer <accessToken>` from `register` / `login` (`?user_id={user_id}` is ignored for authenticated routes). |
 | **Subject Context** | Query Param | Append `?subject_id={subject_id}` (e.g. `subject-abc123`) to routes. |
 | **Response Format** | JSON | CamelCase keys (middleware converts snake_case db records). |
 | **Success Wrap** | JSON | Root objects contain `"status": "success"`. |
@@ -23,12 +23,13 @@ All JSON request and response payloads use **camelCase** keys. Responses wrap ou
 ## 1. Authentication API
 
 ### POST `/api/auth/register`
-Creates a new user account with email + password.
+Creates a new user account with `email`, `username`, and `password`, stores the PBKDF2-SHA256 password hash in PostgreSQL, and returns a Bearer JWT session payload.
 
 **Request Body:**
 ```json
 {
   "email": "user@example.com",
+  "username": "study_user",
   "password": "securepassword123"
 }
 ```
@@ -36,45 +37,52 @@ Creates a new user account with email + password.
 **Success Response (200):**
 ```json
 {
-  "id": "user-user-example-com",
-  "email": "user@example.com",
-  "onboardingStep": 0,
-  "goalMode": null,
-  "dailyGoalMinutes": 30,
-  "studyDays": ["Mon", "Tue", "Wed", "Thu", "Fri"],
-  "studyWindow": null,
-  "quietHours": null,
-  "mascotTone": "encouraging",
-  "notifications": {},
-  "xp": 0,
-  "streak": 0,
-  "fsrsCustomWeights": null,
-  "fsrsTuning": {
-    "lastRunAt": null,
-    "lastRmse": null,
-    "reviewCountAtLastRun": 0
-  }
+  "user": {
+    "id": "user-study_user",
+    "email": "user@example.com",
+    "username": "study_user",
+    "onboardingStep": 0,
+    "goalMode": null,
+    "dailyGoalMinutes": 30,
+    "studyDays": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+    "studyWindow": null,
+    "quietHours": null,
+    "mascotTone": "encouraging",
+    "notifications": {},
+    "xp": 0,
+    "streak": 0,
+    "fsrsCustomWeights": null,
+    "fsrsTuning": {
+      "lastRunAt": null,
+      "lastRmse": null,
+      "reviewCountAtLastRun": 0
+    }
+  },
+  "accessToken": "<jwt-token>",
+  "tokenType": "bearer",
+  "expiresIn": 604800
 }
 ```
 
-**Error (400):** `{"detail": "Email already registered"}`
+**Error (400):** `{"detail": "Email already registered"}` or `{"detail": "Username already registered"}`
 
 ---
 
 ### POST `/api/auth/login`
-Authenticates existing users.
+Authenticates an existing user using `identifier` (username or email) and `password`.
 
 **Request Body:**
 ```json
 {
-  "email": "user@example.com",
+  "identifier": "study_user",
   "password": "securepassword123"
 }
 ```
+*(Also accepts `email` or `username` in place of `identifier`.)*
 
-**Success Response (200):** Same user profile payload as `register`.
+**Success Response (200):** Same `{ "user", "accessToken", "tokenType", "expiresIn" }` session payload as `register`.
 
-**Error (401):** `{"detail": "Invalid email or password"}`
+**Error (401):** `{"detail": "Invalid username/email or password"}`
 
 ---
 
@@ -91,12 +99,14 @@ Dev-only passwordless authentication. Creates or retrieves a user by email/ID.
 }
 ```
 
-**Success Response (200):** Same user profile payload as `register`.
+**Success Response (200):** User profile payload (`user` object).
 
 ---
 
-### POST `/api/onboarding?user_id={user_id}`
-Updates study configuration/preferences during onboarding. Increments onboarding step (max 3).
+### POST `/api/onboarding`
+Updates study configuration/preferences for the authenticated user during onboarding and persists them to PostgreSQL. Increments onboarding step (max 3).
+
+**Headers:** `Authorization: Bearer <accessToken>`
 
 **Request Body:**
 ```json
