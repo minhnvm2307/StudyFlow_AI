@@ -5,6 +5,9 @@ This folder is the canonical home for the current StudyFlow architecture diagram
 ## Files
 - `studyflow-architecture.drawio`: editable multi-page source of truth for the architecture set.
 
+For a quick orientation, start with the system overview, then follow the runtime and feature-flow diagrams.
+The diagrams describe the current architecture; use the repository README for setup and run instructions.
+
 ## System Overview
 Page 1 shows the top-level runtime path from browser to React/Vite, through FastAPI, into PostgreSQL, storage, and the OpenAI-compatible LLM provider.
 
